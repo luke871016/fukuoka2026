@@ -1,0 +1,873 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>福岡 2026 ✈️</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #F0F4F6;
+    --card: #ffffff;
+    --primary: #1B6B7A;
+    --primary-light: #d8ebef;
+    --coral: #C45C26;
+    --coral-light: #f5e6dc;
+    --green: #1E3A5F;
+    --green-light: #d6e0eb;
+    --ink: #1a2a32;
+    --muted: #6b808a;
+    --border: #d0d8dc;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+  body { font-family: 'Noto Sans TC', sans-serif; background: var(--bg); color: var(--ink); min-height: 100vh; overflow-x: hidden; }
+
+  .hero { background: linear-gradient(145deg, #0F3D4A 0%, #1B6B7A 55%, #2A8A9A 100%); padding: 1.2rem 1.5rem 1.6rem; text-align: center; position: relative; }
+  .hero::after { content: ''; position: absolute; bottom: -1px; left: 0; right: 0; height: 20px; background: #F0F4F6; border-radius: 50% 50% 0 0 / 100% 100% 0 0; }
+  .hero h1 { font-size: 1.5rem; font-weight: 700; color: #F0F4F6; line-height: 1.2; margin-bottom: 0.5rem; letter-spacing: 0.05em; }
+  .hero-pill { font-size: 0.72rem; color: rgba(240,244,246,0.75); font-weight: 400; margin-top: 0.3rem; }
+
+  .tab-bar-wrap { background: #F0F4F6; padding: 1rem 0 0; position: sticky; top: 0; z-index: 50; box-shadow: 0 2px 10px rgba(15,61,74,0.10); }
+  .tab-bar { display: flex; overflow-x: auto; scrollbar-width: none; padding: 0 1rem 0.8rem; gap: 0.5rem; }
+  .tab-bar::-webkit-scrollbar { display: none; }
+  .tab-btn { flex-shrink: 0; display: flex; flex-direction: column; align-items: center; gap: 0.12rem; padding: 0.5rem 0.75rem; border-radius: 12px; border: 1.5px solid var(--border); background: var(--card); cursor: pointer; transition: all 0.18s; min-width: 52px; }
+  .tab-btn .dn { font-size: 0.58rem; font-weight: 700; color: var(--muted); letter-spacing: 0.05em; }
+  .tab-btn .de { font-size: 1.1rem; line-height: 1.2; }
+  .tab-btn .dd { font-size: 0.56rem; color: var(--muted); }
+  .tab-btn.active { background: var(--primary); border-color: var(--primary); box-shadow: 0 4px 12px rgba(27,107,122,0.35); }
+  .tab-btn.active .dn, .tab-btn.active .dd { color: rgba(255,255,255,0.8); }
+  .tab-btn.tc.active { background: var(--coral); border-color: var(--coral); box-shadow: 0 4px 12px rgba(196,92,38,0.35); }
+  .tab-btn.tg.active { background: var(--green); border-color: var(--green); box-shadow: 0 4px 12px rgba(30,58,95,0.35); }
+  .tab-btn.ty.active { background: #8A6A3A; border-color: #8A6A3A; box-shadow: 0 4px 12px rgba(138,106,58,0.35); }
+  .tab-btn .ty-label { color: #8A6A3A; }
+  .tab-btn.ty.active .dn, .tab-btn.ty.active .dd, .tab-btn.ty.active .ty-label { color: rgba(255,255,255,0.9); }
+
+  .pages { padding: 1rem 1rem 9rem; background: #F0F4F6; }
+  .page { display: none; background: #F0F4F6; }
+  .page.active { display: block; animation: fadeIn 0.2s ease; }
+  @keyframes fadeIn { from { opacity:0; transform:translateY(6px); } to { opacity:1; transform:translateY(0); } }
+
+  .day-hero { border: 1.5px solid var(--border); border-radius: 16px; padding: 1.2rem 1.3rem 1rem; margin-bottom: 0.8rem; background: var(--primary-light); }
+  .day-hero.ct { background: var(--coral-light); border-color: #e0b8a0; }
+  .day-hero.gt { background: var(--green-light); border-color: #9aaec4; }
+  .day-hero.yt { background: #f0e8d8; border-color: #c9b07a; }
+  .day-tag { display: inline-flex; align-items: center; background: var(--primary); color: white; font-size: 0.62rem; font-weight: 700; letter-spacing: 0.08em; padding: 0.2rem 0.6rem; border-radius: 6px; margin-bottom: 0.55rem; }
+  .day-tag.ct { background: var(--coral); }
+  .day-tag.gt { background: var(--green); }
+  .day-tag.yt { background: #8A6A3A; }
+  .day-title { font-size: 1.2rem; font-weight: 700; line-height: 1.3; margin-bottom: 0.15rem; }
+  .day-sub { font-size: 0.75rem; color: var(--muted); }
+
+  .card { background: var(--card); border: 1.5px solid var(--border); border-radius: 14px; padding: 1rem 1.1rem; margin-bottom: 0.7rem; width: 100%; box-sizing: border-box; }
+  .card-title { font-size: 0.6rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: var(--muted); margin-bottom: 0.7rem; }
+
+  .timeline { display: flex; flex-direction: column; }
+  .tl-item { display: flex; gap: 0.75rem; align-items: flex-start; padding-bottom: 0.75rem; }
+  .tl-item:last-child { padding-bottom: 0; }
+  .tl-left { display: flex; flex-direction: column; align-items: center; width: 40px; flex-shrink: 0; }
+  .tl-time { font-size: 0.65rem; font-weight: 700; color: var(--primary); white-space: nowrap; }
+  .tl-time.ct { color: var(--coral); }
+  .tl-time.gt { color: var(--green); }
+  .tl-line { width: 1.5px; flex: 1; min-height: 14px; background: var(--border); margin-top: 3px; }
+  .tl-item:last-child .tl-line { display: none; }
+  .tl-text { font-size: 0.83rem; line-height: 1.5; padding-top: 1px; flex: 1; min-width: 0; }
+  .tl-sub { font-size: 0.72rem; color: #6b808a; margin-top: 0.18rem; }
+  .tl-note { font-size: 0.7rem; color: #6b808a; margin-top: 0.15rem; padding: 0.22rem 0.5rem; background: var(--bg); border-radius: 5px; display: inline-block; }
+
+  a { color: var(--primary); text-decoration: none; font-weight: 500; border-bottom: 1px solid rgba(27,107,122,0.25); }
+  a:active { opacity: 0.7; }
+
+  .cost-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.9rem 1rem; }
+  .cost-label { font-size: 0.7rem; color: var(--muted); margin-bottom: 0.1rem; }
+  .cost-val { font-size: 1.05rem; font-weight: 700; color: var(--ink); }
+  .cost-val sup { font-size: 0.58rem; font-weight: 400; color: var(--muted); margin-left: 2px; }
+  .cost-total { border-top: 2px solid #c9b07a; padding-top: 0.7rem; grid-column: span 2; }
+  .cost-total .cost-val { font-size: 1.35rem; color: #8A6A3A; }
+
+  .x-card { border-radius: 14px; padding: 0; margin-bottom: 0.7rem; width: 100%; box-sizing: border-box; overflow: hidden; border: 1.5px solid; }
+  .x-card-head { display: flex; align-items: center; gap: 0.5rem; padding: 0.75rem 1rem; cursor: pointer; user-select: none; list-style: none; }
+  .x-card-head::-webkit-details-marker { display: none; }
+  .x-card-title { font-size: 0.6rem; font-weight: 700; letter-spacing: 0.13em; text-transform: uppercase; flex: 1; }
+  .x-card-arrow { font-size: 0.75rem; color: inherit; opacity: 0.5; transition: transform 0.2s; }
+  details.x-card[open] .x-card-arrow { transform: rotate(90deg); }
+  .x-card-body { padding: 0 1rem 0.85rem; }
+
+  .xi { display: flex; gap: 0.7rem; align-items: flex-start; padding: 0.55rem 0; border-top: 1px solid; font-size: 0.82rem; line-height: 1.5; }
+  .xi:first-child { border-top: none; padding-top: 0; }
+  .xi-icon { font-size: 1.05rem; flex-shrink: 0; width: 22px; text-align: center; margin-top: 2px; }
+  .xi-body { flex: 1; min-width: 0; }
+  .xi-name { font-weight: 700; color: var(--ink); font-size: 0.84rem; margin-bottom: 0.1rem; }
+  .xi-desc { font-size: 0.74rem; color: #5a6e7a; line-height: 1.55; margin-top: 0.1rem; }
+  .xi-links { margin-top: 0.25rem; display: flex; flex-wrap: wrap; gap: 0.4rem; }
+  a.xi-link { font-size: 0.68rem; margin-top: 0.2rem; display: inline-block; margin-right: 0.4rem; }
+  .xi-tag { font-size: 0.6rem; font-weight: 700; color: #fff; border-radius: 4px; padding: 0.1rem 0.38rem; display: inline-block; margin-bottom: 0.18rem; }
+
+  .xc-shop { background: #f5ede0; border-color: #D7B377; }
+  .xc-shop .x-card-head { background: #f0e4cc; }
+  .xc-shop .x-card-title { color: #8A6A3A; }
+  .xc-shop .x-card-title::before { content: '🛍️ '; }
+  .xc-shop .xi { border-color: #e0ccaa; }
+
+  .xc-spot { background: #dde9ec; border-color: #7aabbd; }
+  .xc-spot .x-card-head { background: #cddfe4; }
+  .xc-spot .x-card-title { color: #0F3D4A; }
+  .xc-spot .x-card-title::before { content: '📍 '; }
+  .xc-spot .xi { border-color: #aac4d4; }
+
+  .xc-food { background: #f5e6dc; border-color: #e0a080; }
+  .xc-food .x-card-head { background: #eed5c4; }
+  .xc-food .x-card-title { color: #C45C26; }
+  .xc-food .x-card-title::before { content: '🍜 '; }
+  .xc-food .xi { border-color: #e0b8a0; }
+
+  .xc-tip { background: #e4edf2; border-color: #7aaabb; }
+  .xc-tip .x-card-head { background: #d8e8ef; }
+  .xc-tip .x-card-title { color: #1E3A5F; }
+  .xc-tip .x-card-title::before { content: '💡 '; }
+  .xc-tip .xi { border-color: #b8d0db; }
+
+  .xt-spot  { background: #1E3A5F; }
+  .xt-warn  { background: #a04020; }
+  .xt-opt   { background: #1B6B7A; }
+  .xt-food  { background: #C45C26; }
+  .xt-free  { background: #2B5A3A; }
+  .xt-paid  { background: #8A6A3A; }
+
+  .bottom-nav { position: fixed; bottom: 0; left: 0; right: 0; background: rgba(240,244,246,0.96); backdrop-filter: blur(16px); border-top: 1px solid var(--border); padding: 0.5rem 1rem env(safe-area-inset-bottom); display: flex; justify-content: space-around; z-index: 100; }
+  .nav-btn { display: flex; flex-direction: column; align-items: center; gap: 0.15rem; font-size: 0.58rem; color: var(--muted); font-weight: 500; cursor: pointer; padding: 0.3rem 0.8rem; border-radius: 8px; border: none; background: none; transition: color 0.15s; font-family: 'Noto Sans TC', sans-serif; }
+  .nav-btn span { font-size: 1.15rem; }
+  .nav-btn.active { color: var(--primary); }
+
+  .ref-note { font-size: 0.68rem; color: var(--muted); line-height: 1.5; margin-top: 0.5rem; padding: 0.55rem 0.75rem; background: var(--bg); border-radius: 8px; }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <h1>🌊 福岡 2026</h1>
+  <div class="hero-pill">✈️ 8月25日 — 8月30日 · 六天五夜</div>
+</div>
+
+<div class="tab-bar-wrap">
+  <div class="tab-bar">
+    <button class="tab-btn active" onclick="showPage(0)" id="tab0"><div class="dn">DAY1</div><div class="de">🛫</div><div class="dd">8/25</div></button>
+    <button class="tab-btn"        onclick="showPage(1)" id="tab1"><div class="dn">DAY2</div><div class="de">⛴️</div><div class="dd">8/26</div></button>
+    <button class="tab-btn"        onclick="showPage(2)" id="tab2"><div class="dn">DAY3</div><div class="de">⛩️</div><div class="dd">8/27</div></button>
+    <button class="tab-btn tc"     onclick="showPage(3)" id="tab3"><div class="dn">DAY4</div><div class="de">⚾</div><div class="dd">8/28</div></button>
+    <button class="tab-btn tc"     onclick="showPage(4)" id="tab4"><div class="dn">DAY5</div><div class="de">🌊</div><div class="dd">8/29</div></button>
+    <button class="tab-btn tg"     onclick="showPage(5)" id="tab5"><div class="dn">DAY6</div><div class="de">🏠</div><div class="dd">8/30</div></button>
+    <button class="tab-btn ty"     onclick="showPage(6)" id="tab6"><div class="dn">📋</div><div class="de ty-label" style="font-size:0.75rem;font-weight:700;">備註</div><div class="dd">&nbsp;</div></button>
+  </div>
+</div>
+
+<div class="pages">
+
+  <!-- ========== DAY 1 ========== -->
+  <div class="page active" id="page0">
+    <div class="day-hero">
+      <div class="day-tag">DAY 1 · 8月25日（二）</div>
+      <div class="day-title">🛫 抵達北九州</div>
+      <div class="day-sub">桃園 → 福岡機場 → 小倉城 → 門司港</div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">行程時刻</div>
+      <div class="timeline">
+        <div class="tl-item"><div class="tl-left"><div class="tl-time">06:45</div><div class="tl-line"></div></div><div class="tl-text">✈️ 桃園國際機場起飛<div class="tl-sub">台灣時間 · 建議提早 2.5–3 小時到機場</div></div></div>
+        <div class="tl-item"><div class="tl-left"><div class="tl-time">10:05</div><div class="tl-line"></div></div><div class="tl-text">🛬 抵達福岡機場<div class="tl-sub">日本時間 · 入境後往地鐵空港線</div></div></div>
+        <div class="tl-item"><div class="tl-left"><div class="tl-time">🚇</div><div class="tl-line"></div></div><div class="tl-text">福岡機場 → 博多 → 小倉<div class="tl-sub">地鐵空港線至博多（約 5–10 分）→ JR 特急／新幹線至小倉（約 15–35 分）</div></div></div>
+        <div class="tl-item"><div class="tl-left"><div class="tl-time">下午</div><div class="tl-line"></div></div><div class="tl-text">🏯 小倉城<div class="tl-sub">天守閣＋庭園 · 建議預留 1.5–2.5 小時</div></div></div>
+        <div class="tl-item"><div class="tl-left"><div class="tl-time">傍晚</div><div class="tl-line"></div></div><div class="tl-text">🚢 門司港老街逛逛<div class="tl-sub">JR 小倉 → 門司港約 15 分 · 藍翼橋、懷舊建築、焗烤咖哩</div></div></div>
+        <div class="tl-item"><div class="tl-left"><div class="tl-time">住宿</div><div class="tl-line"></div></div><div class="tl-text">🛏️ 門司港普樂美雅飯店<div class="tl-sub">JR 門司港站步行約 2–4 分 · 可選海峽側房看關門大橋</div></div></div>
+      </div>
+    </div>
+
+    <details class="x-card xc-spot" open>
+      <summary class="x-card-head">
+        <span class="x-card-title">景點簡介 — DAY1</span>
+        <span class="x-card-arrow">▶</span>
+      </summary>
+      <div class="x-card-body">
+        <div class="xi">
+          <div class="xi-icon">🏯</div>
+          <div class="xi-body">
+            <span class="xi-tag xt-paid">門票約 ¥350</span>
+            <div class="xi-name">小倉城（こくらじょう）</div>
+            <div class="xi-desc">福岡縣唯一保留天守閣的城堡，以獨特「唐造」屋頂聞名。1602 年由細川忠興築城，現天守為 1959 年市民募款重建，2019 年內部展示翻新。可搭電梯上展望層俯瞰小倉市區；旁有日本庭園與勝山公園，可連逛。</div>
+            <div class="xi-desc">🕐 4–10月 9:00–20:00｜11–3月 9:00–19:00｜年中無休｜最終入場閉館 30 分前</div>
+            <div class="xi-links">
+              <a class="xi-link" href="https://kokura-castle.jp/taiwanese/" target="_blank">→ 官方（繁中）</a>
+              <a class="xi-link" href="https://kokura-castle.jp/information/" target="_blank">→ 利用案内</a>
+              <a class="xi-link" href="https://www.google.com/maps/search/?api=1&query=小倉城" target="_blank">→ 地圖</a>
+            </div>
+          </div>
+        </div>
+        <div class="xi">
+          <div class="xi-icon">🚢</div>
+          <div class="xi-body">
+            <span class="xi-tag xt-free">街區免費</span>
+            <div class="xi-name">門司港懷舊區（門司港レトロ）</div>
+            <div class="xi-desc">明治 22 年（1889）開港的國際貿易港遺跡，保留洋風建築與港灣風情。必看：JR 門司港站、舊門司三井俱樂部、藍翼門司（跳橋）、九州鐵道紀念館。名物焗烤咖哩（焼カレー）遍布街區；入夜建築點燈，關門大橋夜景很美。</div>
+            <div class="xi-desc">🕐 各設施時間不同｜JR 門司港站下車即到</div>
+            <div class="xi-links">
+              <a class="xi-link" href="https://www.mojiko.info/" target="_blank">→ 官方網站</a>
+              <a class="xi-link" href="https://www.crossroadfukuoka.jp/tw/spot/13184" target="_blank">→ VISIT FUKUOKA</a>
+              <a class="xi-link" href="https://bobbytravel.tw/mojiko/" target="_blank">→ 一日遊攻略</a>
+            </div>
+          </div>
+        </div>
+        <div class="xi">
+          <div class="xi-icon">🏨</div>
+          <div class="xi-body">
+            <div class="xi-name">門司港普樂美雅飯店（Premier Hotel Mojiko）</div>
+            <div class="xi-desc">義大利建築師 Aldo Rossi 設計的港口地標飯店，步行至 JR 門司港站與渡船口約 2–5 分。海峽側客房可遠眺關門大橋與對岸下關；早餐常有燒咖哩等北九州在地選項。</div>
+            <div class="xi-links">
+              <a class="xi-link" href="https://premier.scat.co.jp/mojiko/" target="_blank">→ 官方網站</a>
+              <a class="xi-link" href="https://www.google.com/maps/search/?api=1&query=プレミアホテル門司港" target="_blank">→ 地圖</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </details>
+
+    <details class="x-card xc-food">
+      <summary class="x-card-head">
+        <span class="x-card-title">美食備忘 — 門司港</span>
+        <span class="x-card-arrow">▶</span>
+      </summary>
+      <div class="x-card-body">
+        <div class="xi">
+          <div class="xi-icon">🍛</div>
+          <div class="xi-body">
+            <span class="xi-tag xt-food">名物</span>
+            <div class="xi-name">門司港焗烤咖哩（焼カレー）</div>
+            <div class="xi-desc">在咖哩飯上加起司與雞蛋焗烤，門司港多間老店都有。懷舊區散步時可挑一家試試。</div>
+          </div>
+        </div>
+        <div class="xi">
+          <div class="xi-icon">🍌</div>
+          <div class="xi-body">
+            <div class="xi-name">香蕉叫賣・香蕉相關伴手禮</div>
+            <div class="xi-desc">門司港曾是香蕉進口港，街區有黃色香蕉郵筒與相關物產，可當小紀念品。</div>
+            <div class="xi-links"><a class="xi-link" href="https://www.mojiko.info/" target="_blank">→ 門司港官網</a></div>
+          </div>
+        </div>
+      </div>
+    </details>
+
+    <details class="x-card xc-tip">
+      <summary class="x-card-head">
+        <span class="x-card-title">交通提示 — 機場到小倉／門司港</span>
+        <span class="x-card-arrow">▶</span>
+      </summary>
+      <div class="x-card-body">
+        <div class="xi">
+          <div class="xi-icon">🚇</div>
+          <div class="xi-body">
+            <div class="xi-name">建議動線</div>
+            <div class="xi-desc">福岡機場 → 地鐵空港線至博多站 → JR 特急「音速」或新幹線至小倉 → 鹿兒島本線至門司港（小倉→門司港約 15 分）。行李多可先寄放小倉站或直接到門司港飯店 check in。</div>
+          </div>
+        </div>
+      </div>
+    </details>
+  </div>
+
+  <!-- ========== DAY 2 ========== -->
+  <div class="page" id="page1">
+    <div class="day-hero">
+      <div class="day-tag">DAY 2 · 8月26日（三）</div>
+      <div class="day-title">⛴️ 下關一日</div>
+      <div class="day-sub">門司港渡船 → 唐戶市場 → 可選景點</div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">行程時刻</div>
+      <div class="timeline">
+        <div class="tl-item"><div class="tl-left"><div class="tl-time">上午</div><div class="tl-line"></div></div><div class="tl-text">⛴️ 搭船前往下關<div class="tl-sub">關門聯絡船 · 門司港 → 唐戶約 5 分 · 成人單程約 ¥400</div></div></div>
+        <div class="tl-item"><div class="tl-left"><div class="tl-time">午前</div><div class="tl-line"></div></div><div class="tl-text">🐟 唐戶市場<div class="tl-sub">海鮮直賣・壽司・河豚名產 · 建議午前逛較熱鬧</div></div></div>
+        <div class="tl-item"><div class="tl-left"><div class="tl-time">可選</div><div class="tl-line"></div></div><div class="tl-text">🐠 市立下關水族館 海響館<div class="tl-sub">唐戶步行可達 · 海豚秀／河豚展示</div><div class="tl-note">或 みもすそ川公園／関門トンネル人道</div></div></div>
+        <div class="tl-item"><div class="tl-left"><div class="tl-time">傍晚</div><div class="tl-line"></div></div><div class="tl-text">返回門司港<div class="tl-sub">渡船或步行海底隧道回九州側</div></div></div>
+        <div class="tl-item"><div class="tl-left"><div class="tl-time">住宿</div><div class="tl-line"></div></div><div class="tl-text">🛏️ 門司港普樂美雅飯店</div></div>
+      </div>
+    </div>
+
+    <details class="x-card xc-spot" open>
+      <summary class="x-card-head">
+        <span class="x-card-title">景點簡介 — DAY2</span>
+        <span class="x-card-arrow">▶</span>
+      </summary>
+      <div class="x-card-body">
+        <div class="xi">
+          <div class="xi-icon">⛴️</div>
+          <div class="xi-body">
+            <span class="xi-tag xt-paid">約 ¥400</span>
+            <div class="xi-name">關門聯絡船（関門連絡船）</div>
+            <div class="xi-desc">連接門司港與下關唐戶，航程約 5 分鐘，是往返兩岸最快方式。船上可近看關門海峽與關門大橋。唐戶碼頭下船後步行約 5 分到唐戶市場。</div>
+            <div class="xi-links">
+              <a class="xi-link" href="https://www.kanmon-kisen.co.jp/" target="_blank">→ 關門汽船</a>
+            </div>
+          </div>
+        </div>
+        <div class="xi">
+          <div class="xi-icon">🐟</div>
+          <div class="xi-body">
+            <span class="xi-tag xt-food">下關名物</span>
+            <div class="xi-name">唐戶市場（からと市場）</div>
+            <div class="xi-desc">山口縣下關的代表性海鮮市場，以河豚（ふぐ）與新鮮魚介聞名。可現場吃壽司、海鮮丼，週末常有「いきいき馬場」等活動更熱鬧。旁邊有複合設施カモンワーフ（餐廳、伴手禮）。</div>
+            <div class="xi-desc">🕐 約 5:00–15:00（攤位不一）｜午前魚貨最新鮮</div>
+            <div class="xi-links">
+              <a class="xi-link" href="https://www.karatoichiba.com/" target="_blank">→ 官方網站</a>
+              <a class="xi-link" href="https://www.city.kitakyushu.lg.jp/moji/w1100380.html" target="_blank">→ 關門區域介紹</a>
+            </div>
+          </div>
+        </div>
+        <div class="xi">
+          <div class="xi-icon">🐠</div>
+          <div class="xi-body">
+            <span class="xi-tag xt-opt">可選</span>
+            <div class="xi-name">市立下關水族館 海響館</div>
+            <div class="xi-desc">面關門海峽的水族館，以國內最大級河豚類展示、海豚／海獅秀與企鵝村著稱。雨天備案首選；與唐戶市場同區，步行可連排。</div>
+            <div class="xi-links">
+              <a class="xi-link" href="https://www.kaikyokan.com/" target="_blank">→ 官方網站</a>
+            </div>
+          </div>
+        </div>
+        <div class="xi">
+          <div class="xi-icon">🏞️</div>
+          <div class="xi-body">
+            <span class="xi-tag xt-opt">可選</span>
+            <div class="xi-name">みもすそ川公園</div>
+            <div class="xi-desc">關門大橋腳下的海濱公園，可近距離仰望大橋與海峽風景，鄰近壇之浦古戰場與關門隧道人道入口。適合散步拍照、感受本州最西端氛圍。</div>
+            <div class="xi-links">
+              <a class="xi-link" href="https://kanmon.gr.jp/" target="_blank">→ 關門海峽 Navi</a>
+            </div>
+          </div>
+        </div>
+        <div class="xi">
+          <div class="xi-icon">🚶</div>
+          <div class="xi-body">
+            <span class="xi-tag xt-free">行人免費</span>
+            <div class="xi-name">関門トンネル人道</div>
+            <div class="xi-desc">世界罕見可步行穿越的海底隧道，連接下關みもすそ川與門司めかり，全長約 780m、步行約 15 分。電梯下至地下約 50m，隧道中央有山口／福岡縣界標示；壁面有海藻魚群彩繪，夜間星空照明很有趣。</div>
+            <div class="xi-desc">🕐 6:00–22:00｜年中無休｜行人免費｜自行車／原付 ¥20</div>
+            <div class="xi-links">
+              <a class="xi-link" href="https://kanmon.gr.jp/areamap/%e9%96%a2%e9%96%80%e3%83%88%e3%83%b3%e3%83%8d%e3%83%ab%e4%ba%ba%e9%81%93%e4%b8%8b%e9%96%a2%e5%81%b4/" target="_blank">→ 設施介紹</a>
+              <a class="xi-link" href="https://www.city.kitakyushu.lg.jp/moji/w1100380.html" target="_blank">→ 北九州市說明</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </details>
+
+    <details class="x-card xc-tip">
+      <summary class="x-card-head">
+        <span class="x-card-title">行程建議 — 可選組合</span>
+        <span class="x-card-arrow">▶</span>
+      </summary>
+      <div class="x-card-body">
+        <div class="xi">
+          <div class="xi-icon">🅰️</div>
+          <div class="xi-body">
+            <div class="xi-name">海鮮＋水族館</div>
+            <div class="xi-desc">唐戶市場吃午餐 → 海響館 → 渡船回門司港。步行量少、雨天友善。</div>
+          </div>
+        </div>
+        <div class="xi">
+          <div class="xi-icon">🅱️</div>
+          <div class="xi-body">
+            <div class="xi-name">海鮮＋步行過海</div>
+            <div class="xi-desc">唐戶市場 → 巴士／步行至みもすそ川公園 → 関門トンネル人道走回門司側。體驗感強，建議穿好走路的鞋。</div>
+          </div>
+        </div>
+      </div>
+    </details>
+  </div>
+
+  <!-- ========== DAY 3 ========== -->
+  <div class="page" id="page2">
+    <div class="day-hero">
+      <div class="day-tag">DAY 3 · 8月27日（四）</div>
+      <div class="day-title">⛩️ 移宿博多 · 太宰府</div>
+      <div class="day-sub">門司港 → 博多 FORZA → 太宰府天滿宮</div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">行程時刻</div>
+      <div class="timeline">
+        <div class="tl-item"><div class="tl-left"><div class="tl-time">上午</div><div class="tl-line"></div></div><div class="tl-text">🚆 前往博多<div class="tl-sub">JR 門司港 → 小倉 → 博多 · 約 1–1.5 小時</div></div></div>
+        <div class="tl-item"><div class="tl-left"><div class="tl-time">中午</div><div class="tl-line"></div></div><div class="tl-text">🏨 FORZA 放行李<div class="tl-sub">博多站博多口 · 可先寄放再出發</div></div></div>
+        <div class="tl-item"><div class="tl-left"><div class="tl-time">下午</div><div class="tl-line"></div></div><div class="tl-text">⛩️ 西鐵或巴士去太宰府<div class="tl-sub">西鐵電車：西鐵福岡（天神）→ 二日市轉太宰府｜或旅人巴士直達</div></div></div>
+        <div class="tl-item"><div class="tl-left"><div class="tl-time">傍晚</div><div class="tl-line"></div></div><div class="tl-text">返回博多<div class="tl-sub">參道梅枝餅、一蘭太宰府店可順路</div></div></div>
+        <div class="tl-item"><div class="tl-left"><div class="tl-time">住宿</div><div class="tl-line"></div></div><div class="tl-text">🛏️ 博多站博多口 FORZA 飯店</div></div>
+      </div>
+    </div>
+
+    <details class="x-card xc-spot" open>
+      <summary class="x-card-head">
+        <span class="x-card-title">景點簡介 — DAY3</span>
+        <span class="x-card-arrow">▶</span>
+      </summary>
+      <div class="x-card-body">
+        <div class="xi">
+          <div class="xi-icon">⛩️</div>
+          <div class="xi-body">
+            <span class="xi-tag xt-free">參拜免費</span>
+            <div class="xi-name">太宰府天滿宮</div>
+            <div class="xi-desc">祭祀學問之神菅原道真的總本宮，全日本約 1 萬 2 千座天滿宮的總社。飛梅傳說、太鼓橋與萬葉植物園是經典看點；考生與求學祈願者特別多。參道兩側有梅枝餅、茶屋與伴手禮店，建議預留半天。</div>
+            <div class="xi-desc">🕐 開門約 6:00／6:30 起，關門約 18:30–19:30（季節異動）</div>
+            <div class="xi-links">
+              <a class="xi-link" href="https://www.dazaifutenmangu.or.jp/tw/" target="_blank">→ 官方（繁中）</a>
+              <a class="xi-link" href="https://www.crossroadfukuoka.jp/tw/" target="_blank">→ VISIT FUKUOKA</a>
+            </div>
+          </div>
+        </div>
+        <div class="xi">
+          <div class="xi-icon">🏨</div>
+          <div class="xi-body">
+            <div class="xi-name">Hotel Forza 博多站博多口</div>
+            <div class="xi-desc">鄰近博多站博多口的商務飯店品牌，往地鐵、JR、西鐵巴士都方便，適合作為福岡市區據點。DAY3–DAY6（退房日）連續住宿。</div>
+            <div class="xi-links">
+              <a class="xi-link" href="https://www.hotelforza.jp/" target="_blank">→ FORZA 官網</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </details>
+
+    <details class="x-card xc-tip">
+      <summary class="x-card-head">
+        <span class="x-card-title">交通 — 去太宰府怎麼選</span>
+        <span class="x-card-arrow">▶</span>
+      </summary>
+      <div class="x-card-body">
+        <div class="xi">
+          <div class="xi-icon">🚃</div>
+          <div class="xi-body">
+            <div class="xi-name">西鐵電車</div>
+            <div class="xi-desc">西鐵福岡（天神）站搭特急／急行至西鐵二日市，轉太宰府線至太宰府站。也可買西鐵太宰府套票或福岡悠遊卡（含部分區間）。</div>
+          </div>
+        </div>
+        <div class="xi">
+          <div class="xi-icon">🚌</div>
+          <div class="xi-body">
+            <div class="xi-name">西鐵旅人巴士（太宰府ライナーバス「旅人」）</div>
+            <div class="xi-desc">博多站／天神直達太宰府，免轉車較輕鬆，行李放飯店後很適合。班次請當日查西鐵官網。</div>
+            <div class="xi-links">
+              <a class="xi-link" href="https://www.nishitetsu.jp/" target="_blank">→ 西鐵官網</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </details>
+
+    <details class="x-card xc-food">
+      <summary class="x-card-head">
+        <span class="x-card-title">美食備忘 — 太宰府參道</span>
+        <span class="x-card-arrow">▶</span>
+      </summary>
+      <div class="x-card-body">
+        <div class="xi">
+          <div class="xi-icon">🍡</div>
+          <div class="xi-body">
+            <span class="xi-tag xt-food">必吃</span>
+            <div class="xi-name">梅枝餅（うめがえもち）</div>
+            <div class="xi-desc">太宰府名物，參道多家老店各有擁護者。熱騰騰現烤最對味。</div>
+          </div>
+        </div>
+        <div class="xi">
+          <div class="xi-icon">🍜</div>
+          <div class="xi-body">
+            <div class="xi-name">一蘭 太宰府參道店</div>
+            <div class="xi-desc">世界唯一五角碗一蘭，常被當作求學／考試加持的打卡點。排隊可能較久，可視時間決定。</div>
+          </div>
+        </div>
+      </div>
+    </details>
+  </div>
+
+  <!-- ========== DAY 4 ========== -->
+  <div class="page" id="page3">
+    <div class="day-hero ct">
+      <div class="day-tag ct">DAY 4 · 8月28日（五）</div>
+      <div class="day-title">⚾ 大濠公園 · 王貞治</div>
+      <div class="day-sub">市區悠閒日 · 可選福岡塔</div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">行程時刻</div>
+      <div class="timeline">
+        <div class="tl-item"><div class="tl-left"><div class="tl-time ct">上午</div><div class="tl-line"></div></div><div class="tl-text">🌳 大濠公園<div class="tl-sub">地鐵空港線「大濠公園」站步行約 7–10 分 · 可划船／散步／日本庭園</div></div></div>
+        <div class="tl-item"><div class="tl-left"><div class="tl-time ct">下午</div><div class="tl-line"></div></div><div class="tl-text">⚾ 王貞治紀念館<div class="tl-sub">BOSS E・ZO FUKUOKA 4F · 建議事先查預約與開館時間</div></div></div>
+        <div class="tl-item"><div class="tl-left"><div class="tl-time ct">可選</div><div class="tl-line"></div></div><div class="tl-text">🗼 福岡塔<div class="tl-sub">234m 海濱塔 · 可看博多灣夕陽／夜景</div></div></div>
+        <div class="tl-item"><div class="tl-left"><div class="tl-time ct">住宿</div><div class="tl-line"></div></div><div class="tl-text">🛏️ 博多站博多口 FORZA 飯店</div></div>
+      </div>
+    </div>
+
+    <details class="x-card xc-spot" open>
+      <summary class="x-card-head">
+        <span class="x-card-title">景點簡介 — DAY4</span>
+        <span class="x-card-arrow">▶</span>
+      </summary>
+      <div class="x-card-body">
+        <div class="xi">
+          <div class="xi-icon">🌳</div>
+          <div class="xi-body">
+            <span class="xi-tag xt-free">公園免費</span>
+            <div class="xi-name">大濠公園</div>
+            <div class="xi-desc">福岡市代表性水景公園，中央為寬闊池塘，可騎天鵝船、環湖慢跑或野餐。園內另有日本庭園（築山林泉廻遊式，另收費），四季景色都適合放慢腳步。</div>
+            <div class="xi-desc">🕐 公園終日開放｜日本庭園約 9:00–17:00／18:00（季節異動）｜庭園週一休（祝日則翌日）</div>
+            <div class="xi-links">
+              <a class="xi-link" href="https://www.ohori-park.jp/" target="_blank">→ 大濠公園官網</a>
+              <a class="xi-link" href="https://www.crossroadfukuoka.jp/spot/12303" target="_blank">→ 日本庭園介紹</a>
+            </div>
+          </div>
+        </div>
+        <div class="xi">
+          <div class="xi-icon">⚾</div>
+          <div class="xi-body">
+            <span class="xi-tag xt-paid">大人約 ¥1,800</span>
+            <div class="xi-name">王貞治棒球紀念館（王貞治ベースボールミュージアム）</div>
+            <div class="xi-desc">位於 PayPay Dome 旁複合設施 BOSS E・ZO FUKUOKA 4F。展示「世界全壘打王」王貞治生涯軌跡的歷史區，以及可體驗打擊／投球的「89 パーク」。棒球迷必訪；非球迷也可感受體育殿堂氛圍。</div>
+            <div class="xi-desc">🕐 平日 11:00–20:00｜土日祝 10:00–20:00｜最終入場約 19:30｜巨蛋活動日可能異動</div>
+            <div class="xi-links">
+              <a class="xi-link" href="https://www.softbankhawks.co.jp/stadium/ezofukuoka/ohmuseum/" target="_blank">→ 官方介紹</a>
+              <a class="xi-link" href="https://yokanavi.com/spots/235805" target="_blank">→ よかなび</a>
+            </div>
+          </div>
+        </div>
+        <div class="xi">
+          <div class="xi-icon">🗼</div>
+          <div class="xi-body">
+            <span class="xi-tag xt-opt">可選</span>
+            <div class="xi-name">福岡塔</div>
+            <div class="xi-desc">日本最高海濱展望塔（234m），展望台可 360° 眺望福岡市區與博多灣。傍晚到夜間景色特別漂亮，適合當 DAY4 收尾；一樓有伴手禮與餐廳。</div>
+            <div class="xi-desc">🕐 9:30–22:00（最終入場 21:30）</div>
+            <div class="xi-links">
+              <a class="xi-link" href="https://www.fukuokatower.co.jp/" target="_blank">→ 官方網站</a>
+              <a class="xi-link" href="https://www.fukuokatower.co.jp/faq/" target="_blank">→ 營業時間 FAQ</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </details>
+
+    <details class="x-card xc-tip">
+      <summary class="x-card-head">
+        <span class="x-card-title">動線建議</span>
+        <span class="x-card-arrow">▶</span>
+      </summary>
+      <div class="x-card-body">
+        <div class="xi">
+          <div class="xi-icon">🗺️</div>
+          <div class="xi-body">
+            <div class="xi-name">大濠 → 巨蛋園區 →（可選）福岡塔</div>
+            <div class="xi-desc">大濠公園與 PayPay Dome／E・ZO 同屬西側市區，可地鐵或巴士串連。福岡塔在百道濱，距巨蛋不遠，傍晚過去看夕陽夜景剛好。</div>
+          </div>
+        </div>
+      </div>
+    </details>
+  </div>
+
+  <!-- ========== DAY 5 ========== -->
+  <div class="page" id="page4">
+    <div class="day-hero ct">
+      <div class="day-tag ct">DAY 5 · 8月29日（六）</div>
+      <div class="day-title">🌊 糸島一日遊</div>
+      <div class="day-sub">KKDAY 套裝 · 瀑布 → 海岸 → 神社</div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">行程時刻</div>
+      <div class="timeline">
+        <div class="tl-item"><div class="tl-left"><div class="tl-time ct">全天</div><div class="tl-line"></div></div><div class="tl-text">🚌 <a href="https://www.kkday.com/zh-tw/product/166716" target="_blank">KKDAY 糸島一日遊</a><div class="tl-sub">集合／解散時間以訂單為準 · 含車程導覽</div></div></div>
+        <div class="tl-item"><div class="tl-left"><div class="tl-time ct">①</div><div class="tl-line"></div></div><div class="tl-text">💧 白絲瀑布</div></div>
+        <div class="tl-item"><div class="tl-left"><div class="tl-time ct">②</div><div class="tl-line"></div></div><div class="tl-text">🪨 櫻井二見浦夫婦岩</div></div>
+        <div class="tl-item"><div class="tl-left"><div class="tl-time ct">③</div><div class="tl-line"></div></div><div class="tl-text">🌴 椰子樹鞦韆</div></div>
+        <div class="tl-item"><div class="tl-left"><div class="tl-time ct">④</div><div class="tl-line"></div></div><div class="tl-text">🍜 一蘭之森</div></div>
+        <div class="tl-item"><div class="tl-left"><div class="tl-time ct">⑤</div><div class="tl-line"></div></div><div class="tl-text">⛩️ 宗像大社</div></div>
+        <div class="tl-item"><div class="tl-left"><div class="tl-time ct">⑥</div><div class="tl-line"></div></div><div class="tl-text">🌅 宮地嶽神社</div></div>
+        <div class="tl-item"><div class="tl-left"><div class="tl-time ct">住宿</div><div class="tl-line"></div></div><div class="tl-text">🛏️ 博多站博多口 FORZA 飯店</div></div>
+      </div>
+    </div>
+
+    <details class="x-card xc-spot" open>
+      <summary class="x-card-head">
+        <span class="x-card-title">景點簡介 — 糸島路線</span>
+        <span class="x-card-arrow">▶</span>
+      </summary>
+      <div class="x-card-body">
+        <div class="xi">
+          <div class="xi-icon">💧</div>
+          <div class="xi-body">
+            <div class="xi-name">白絲瀑布（白糸の滝）</div>
+            <div class="xi-desc">糸島市羽金山半山腰的縣指定名勝，落差約 24m，水流如白絲般沿岩壁瀉下。周邊「ふれあいの里」有展望台、茶屋與季節活動（流水素麵、山女魚等）。8 月設施營業約至 18:00，夏季涼爽好拍。</div>
+            <div class="xi-links">
+              <a class="xi-link" href="https://www.crossroadfukuoka.jp/tw/spot/10063" target="_blank">→ VISIT FUKUOKA</a>
+              <a class="xi-link" href="https://www.city.itoshima.lg.jp/s026/s040/010/020/020/110/shiroito.html" target="_blank">→ 糸島市介紹</a>
+            </div>
+          </div>
+        </div>
+        <div class="xi">
+          <div class="xi-icon">🪨</div>
+          <div class="xi-body">
+            <div class="xi-name">櫻井二見浦夫婦岩</div>
+            <div class="xi-desc">糸島北海岸的象徵景點，兩塊巨岩以注連繩相連，被視為夫婦／良緣象徵。夕陽時分特別美；鄰近櫻井神社，海邊風大，注意防曬與鞋子。</div>
+            <div class="xi-links">
+              <a class="xi-link" href="https://kanko-itoshima.jp/spot/sakuraijinja/" target="_blank">→ 糸島觀光（櫻井神社）</a>
+            </div>
+          </div>
+        </div>
+        <div class="xi">
+          <div class="xi-icon">🌴</div>
+          <div class="xi-body">
+            <div class="xi-name">椰子樹鞦韆</div>
+            <div class="xi-desc">糸島海岸人氣打卡點，椰子樹與鞦韆組成南國感畫面，常出現在一日遊行程中。實際停留點以 KKDAY 當日安排為準，建議提早確認可否盪鞦韆與排隊狀況。</div>
+          </div>
+        </div>
+        <div class="xi">
+          <div class="xi-icon">🍜</div>
+          <div class="xi-body">
+            <div class="xi-name">一蘭之森（一蘭の森 糸島）</div>
+            <div class="xi-desc">約東京巨蛋兩座大的一蘭總部園區，天然豚骨拉麵的秘傳醬汁與高湯由此出貨至全球門市。可參觀部分製麵過程（免費），並在園區店慢慢吃一碗；與市區一蘭氣氛不同。</div>
+            <div class="xi-desc">🕐 10:00–16:00（LO 15:45）｜無定休日</div>
+            <div class="xi-links">
+              <a class="xi-link" href="https://www.crossroadfukuoka.jp/spot/11795" target="_blank">→ VISIT FUKUOKA</a>
+              <a class="xi-link" href="https://www.genkyumura.or.jp/" target="_blank">→ 相關介紹</a>
+            </div>
+          </div>
+        </div>
+        <div class="xi">
+          <div class="xi-icon">⛩️</div>
+          <div class="xi-body">
+            <div class="xi-name">宗像大社</div>
+            <div class="xi-desc">日本古代海洋信仰的重要神社，祭祀宗像三女神，與沖之島信仰相關，為世界遺產「『神宿る島』宗像・沖ノ島と関連遺産群」組成部分。邊津宮（本島側）是一般旅客主要參拜處，莊嚴寧靜。</div>
+            <div class="xi-links">
+              <a class="xi-link" href="https://www.munakata-taisha.or.jp/" target="_blank">→ 官方網站</a>
+            </div>
+          </div>
+        </div>
+        <div class="xi">
+          <div class="xi-icon">🌅</div>
+          <div class="xi-body">
+            <div class="xi-name">宮地嶽神社</div>
+            <div class="xi-desc">以「日本第一光之道」聞名——参道兩側燈籠在特定時節與夕陽排成一線，是福岡最熱門夕陽神社之一。也以巨大注連繩與開運祈願著稱；一日遊常安排為最後一站，運氣好可拍到金色參道。</div>
+            <div class="xi-links">
+              <a class="xi-link" href="https://www.miyajidake.or.jp/" target="_blank">→ 官方網站</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </details>
+
+    <details class="x-card xc-tip">
+      <summary class="x-card-head">
+        <span class="x-card-title">KKDAY 訂單提醒</span>
+        <span class="x-card-arrow">▶</span>
+      </summary>
+      <div class="x-card-body">
+        <div class="xi">
+          <div class="xi-icon">📱</div>
+          <div class="xi-body">
+            <div class="xi-name">出發前確認</div>
+            <div class="xi-desc">集合地點、時間、是否含餐、遇雨備案以訂單頁為準。8 月底糸島仍偏熱，建議帽子、防晒、運動鞋與行動電源。</div>
+            <div class="xi-links">
+              <a class="xi-link" href="https://www.kkday.com/zh-tw/product/166716" target="_blank">→ KKDAY 商品頁</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </details>
+  </div>
+
+  <!-- ========== DAY 6 ========== -->
+  <div class="page" id="page5">
+    <div class="day-hero gt">
+      <div class="day-tag gt">DAY 6 · 8月30日（日）</div>
+      <div class="day-title">🏠 平安回家</div>
+      <div class="day-sub">福岡機場 → 桃園</div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">行程時刻</div>
+      <div class="timeline">
+        <div class="tl-item"><div class="tl-left"><div class="tl-time gt">上午</div><div class="tl-line"></div></div><div class="tl-text">🏨 FORZA Check out<div class="tl-sub">博多站 → 地鐵空港線直達福岡機場（約 5–10 分）</div></div></div>
+        <div class="tl-item"><div class="tl-left"><div class="tl-time gt">建議</div><div class="tl-line"></div></div><div class="tl-text">提早 2–2.5 小時到機場<div class="tl-sub">國際線需搭免費接駁至國際線航廈</div></div></div>
+        <div class="tl-item"><div class="tl-left"><div class="tl-time gt">10:25</div><div class="tl-line"></div></div><div class="tl-text">✈️ 福岡機場起飛<div class="tl-sub">日本時間</div></div></div>
+        <div class="tl-item"><div class="tl-left"><div class="tl-time gt">11:55</div><div class="tl-line"></div></div><div class="tl-text">🛬 抵達桃園國際機場<div class="tl-sub">台灣時間</div></div></div>
+        <div class="tl-item"><div class="tl-left"><div class="tl-time gt">住宿</div><div class="tl-line"></div></div><div class="tl-text">🛏️ 博多站博多口 FORZA（前一晚）</div></div>
+      </div>
+    </div>
+
+    <details class="x-card xc-shop">
+      <summary class="x-card-head">
+        <span class="x-card-title">最後補貨 — 機場／博多</span>
+        <span class="x-card-arrow">▶</span>
+      </summary>
+      <div class="x-card-body">
+        <div class="xi">
+          <div class="xi-icon">🍪</div>
+          <div class="xi-body">
+            <div class="xi-name">博多明太子相關伴手禮</div>
+            <div class="xi-desc">福太郎、島本等品牌在博多駅與機場都有。明太子仙貝、管裝明太子好帶。</div>
+          </div>
+        </div>
+        <div class="xi">
+          <div class="xi-icon">🍰</div>
+          <div class="xi-body">
+            <div class="xi-name">ねんりんや／ひよ子 等定番</div>
+            <div class="xi-desc">年輪蛋糕、小雞饅頭等九州定番，機場免稅與博多駅地下街最齊。</div>
+          </div>
+        </div>
+        <div class="xi">
+          <div class="xi-icon">💊</div>
+          <div class="xi-body">
+            <div class="xi-name">藥妝最後補貨</div>
+            <div class="xi-desc">博多口周邊藥妝方便；若時間緊，機場也有但選擇較少、價格可能略高。</div>
+          </div>
+        </div>
+      </div>
+    </details>
+
+    <details class="x-card xc-tip">
+      <summary class="x-card-head">
+        <span class="x-card-title">機場動線</span>
+        <span class="x-card-arrow">▶</span>
+      </summary>
+      <div class="x-card-body">
+        <div class="xi">
+          <div class="xi-icon">🚇</div>
+          <div class="xi-body">
+            <div class="xi-name">地鐵 → 國際線</div>
+            <div class="xi-desc">地鐵「福岡空港」站在國內線側，轉國際線請搭免費接駁巴士（約 10–15 分一班）。出境報到櫃檯依航空公司不同，請提早確認。</div>
+          </div>
+        </div>
+      </div>
+    </details>
+  </div>
+
+  <!-- ========== NOTES ========== -->
+  <div class="page" id="page6">
+    <div class="day-hero yt">
+      <div class="day-tag yt">備註 · 總覽</div>
+      <div class="day-title">📋 住宿與參考資料</div>
+      <div class="day-sub">行程摘要 · 官方連結彙整</div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">住宿一覽</div>
+      <div class="timeline">
+        <div class="tl-item"><div class="tl-left"><div class="tl-time">8/25–26</div><div class="tl-line"></div></div><div class="tl-text">🛏️ 門司港普樂美雅飯店 × 2 晚<div class="tl-sub">Premier Hotel Mojiko · 門司港懷舊區</div></div></div>
+        <div class="tl-item"><div class="tl-left"><div class="tl-time">8/27–29</div><div class="tl-line"></div></div><div class="tl-text">🛏️ 博多站博多口 FORZA × 3 晚<div class="tl-sub">Hotel Forza Hakata-Guchi · 8/30 早上退房</div></div></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">行程速覽</div>
+      <div class="timeline">
+        <div class="tl-item"><div class="tl-left"><div class="tl-time">DAY1</div><div class="tl-line"></div></div><div class="tl-text">福岡機場 → 小倉城 → 門司港</div></div>
+        <div class="tl-item"><div class="tl-left"><div class="tl-time">DAY2</div><div class="tl-line"></div></div><div class="tl-text">下關唐戶市場＋可選海響館／公園／人道</div></div>
+        <div class="tl-item"><div class="tl-left"><div class="tl-time">DAY3</div><div class="tl-line"></div></div><div class="tl-text">移宿博多 → 太宰府</div></div>
+        <div class="tl-item"><div class="tl-left"><div class="tl-time">DAY4</div><div class="tl-line"></div></div><div class="tl-text">大濠公園 → 王貞治紀念館 →（可選）福岡塔</div></div>
+        <div class="tl-item"><div class="tl-left"><div class="tl-time">DAY5</div><div class="tl-line"></div></div><div class="tl-text">KKDAY 糸島一日遊</div></div>
+        <div class="tl-item"><div class="tl-left"><div class="tl-time">DAY6</div><div class="tl-line"></div></div><div class="tl-text">福岡機場返台</div></div>
+      </div>
+    </div>
+
+    <details class="x-card xc-spot" open>
+      <summary class="x-card-head">
+        <span class="x-card-title">主要參考資料</span>
+        <span class="x-card-arrow">▶</span>
+      </summary>
+      <div class="x-card-body">
+        <div class="xi">
+          <div class="xi-icon">🏛️</div>
+          <div class="xi-body">
+            <div class="xi-name">官方／觀光局</div>
+            <div class="xi-desc">
+              <a href="https://kokura-castle.jp/taiwanese/" target="_blank">小倉城</a> ·
+              <a href="https://www.mojiko.info/" target="_blank">門司港レトロ</a> ·
+              <a href="https://www.karatoichiba.com/" target="_blank">唐戶市場</a> ·
+              <a href="https://www.kaikyokan.com/" target="_blank">海響館</a> ·
+              <a href="https://www.dazaifutenmangu.or.jp/tw/" target="_blank">太宰府天滿宮</a> ·
+              <a href="https://www.ohori-park.jp/" target="_blank">大濠公園</a> ·
+              <a href="https://www.fukuokatower.co.jp/" target="_blank">福岡塔</a> ·
+              <a href="https://www.munakata-taisha.or.jp/" target="_blank">宗像大社</a> ·
+              <a href="https://www.miyajidake.or.jp/" target="_blank">宮地嶽神社</a> ·
+              <a href="https://www.crossroadfukuoka.jp/tw/" target="_blank">VISIT FUKUOKA</a>
+            </div>
+          </div>
+        </div>
+        <div class="xi">
+          <div class="xi-icon">🎫</div>
+          <div class="xi-body">
+            <div class="xi-name">套裝行程</div>
+            <div class="xi-desc"><a href="https://www.kkday.com/zh-tw/product/166716" target="_blank">KKDAY 糸島一日遊 #166716</a></div>
+          </div>
+        </div>
+        <div class="xi">
+          <div class="xi-icon">📖</div>
+          <div class="xi-body">
+            <div class="xi-name">攻略參考</div>
+            <div class="xi-desc">
+              <a href="https://bobbytravel.tw/mojiko/" target="_blank">門司港一日遊（波比看世界）</a> ·
+              <a href="https://www.city.kitakyushu.lg.jp/moji/w1100380.html" target="_blank">北九州市・關門區域</a> ·
+              <a href="https://kanmon.gr.jp/" target="_blank">關門海峽 Navi</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </details>
+
+    <div class="ref-note">
+      ※ 營業時間、票價、班次可能異動，出發前請再對官方網站確認。<br>
+      ※ 費用明細尚未填入；若之後有機票／住宿金額可再補「開銷」分頁。
+    </div>
+  </div>
+
+</div>
+
+<div class="bottom-nav">
+  <button class="nav-btn active" onclick="scrollToTop()"><span>⬆️</span>回頂</button>
+  <button class="nav-btn" onclick="openMap()"><span>🗺️</span>地圖</button>
+  <button class="nav-btn" onclick="prevDay()"><span>◀</span>上一天</button>
+  <button class="nav-btn" onclick="nextDay()"><span>▶</span>下一天</button>
+</div>
+
+<script>
+  let cur = 0;
+  const N = 7;
+  const MAPS = [
+    'https://www.google.com/maps/search/?api=1&query=小倉城',
+    'https://www.google.com/maps/search/?api=1&query=唐戸市場+下関',
+    'https://www.google.com/maps/search/?api=1&query=太宰府天満宮',
+    'https://www.google.com/maps/search/?api=1&query=大濠公園+福岡',
+    'https://www.google.com/maps/search/?api=1&query=白糸の滝+糸島',
+    'https://www.google.com/maps/search/?api=1&query=福岡空港',
+    'https://www.google.com/maps/search/?api=1&query=福岡+博多'
+  ];
+
+  function showPage(n) {
+    cur = n;
+    document.querySelectorAll('.page').forEach((p, i) => p.classList.toggle('active', i === n));
+    document.querySelectorAll('.tab-btn').forEach((t, i) => t.classList.toggle('active', i === n));
+    const tab = document.getElementById('tab' + n);
+    if (tab) tab.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  document.addEventListener('DOMContentLoaded', () => showPage(0));
+
+  function prevDay() { if (cur > 0) showPage(cur - 1); }
+  function nextDay() { if (cur < N - 1) showPage(cur + 1); }
+  function scrollToTop() { window.scrollTo({ top: 0, behavior: 'smooth' }); }
+  function openMap() { window.open(MAPS[cur] || MAPS[6], '_blank'); }
+
+  let sx = 0;
+  document.addEventListener('touchstart', e => { sx = e.touches[0].clientX; });
+  document.addEventListener('touchend', e => {
+    const dx = e.changedTouches[0].clientX - sx;
+    if (Math.abs(dx) > 55) dx < 0 ? nextDay() : prevDay();
+  });
+</script>
+</body>
+</html>
