@@ -132,6 +132,23 @@
   .xt-food  { background: #C45C26; }
   .xt-free  { background: #2B5A3A; }
   .xt-paid  { background: #8A6A3A; }
+  .xt-pass  { background: #6B3FA0; }
+  .xt-pass-s { background: #8B5CF6; }
+  .xt-pass-d { background: #C45C26; }
+  .xt-pass-m { background: #1B6B7A; }
+
+  .xc-pass { background: #efe8f7; border-color: #b39ddb; }
+  .xc-pass .x-card-head { background: #e4daf2; }
+  .xc-pass .x-card-title { color: #6B3FA0; }
+  .xc-pass .x-card-title::before { content: '🎫 '; }
+  .xc-pass .xi { border-color: #cbb8e0; }
+
+  .pass-banner { background: linear-gradient(135deg, #6B3FA0 0%, #1B6B7A 100%); color: #fff; border-radius: 14px; padding: 1rem 1.1rem; margin-bottom: 0.7rem; }
+  .pass-banner h3 { font-size: 1rem; font-weight: 700; margin-bottom: 0.35rem; }
+  .pass-banner p { font-size: 0.75rem; line-height: 1.55; opacity: 0.92; }
+  .pass-banner a { color: #fff; border-bottom-color: rgba(255,255,255,0.45); }
+  .pass-chips { display: flex; flex-wrap: wrap; gap: 0.35rem; margin-top: 0.65rem; }
+  .pass-chip { font-size: 0.62rem; font-weight: 700; background: rgba(255,255,255,0.18); padding: 0.22rem 0.5rem; border-radius: 999px; }
 
   .bottom-nav { position: fixed; bottom: 0; left: 0; right: 0; background: rgba(240,244,246,0.96); backdrop-filter: blur(16px); border-top: 1px solid var(--border); padding: 0.5rem 1rem env(safe-area-inset-bottom); display: flex; justify-content: space-around; z-index: 100; }
   .nav-btn { display: flex; flex-direction: column; align-items: center; gap: 0.15rem; font-size: 0.58rem; color: var(--muted); font-weight: 500; cursor: pointer; padding: 0.3rem 0.8rem; border-radius: 8px; border: none; background: none; transition: color 0.15s; font-family: 'Noto Sans TC', sans-serif; }
@@ -145,7 +162,7 @@
 
 <div class="hero">
   <h1>🌊 福岡 2026</h1>
-  <div class="hero-pill">✈️ 8月25日 — 8月30日 · 六天五夜</div>
+  <div class="hero-pill">✈️ 8月25日 — 8月30日 · 六天五夜 · FunPASS 七合一</div>
 </div>
 
 <div class="tab-bar-wrap">
@@ -156,7 +173,8 @@
     <button class="tab-btn tc"     onclick="showPage(3)" id="tab3"><div class="dn">DAY4</div><div class="de">⚾</div><div class="dd">8/28</div></button>
     <button class="tab-btn tc"     onclick="showPage(4)" id="tab4"><div class="dn">DAY5</div><div class="de">🌊</div><div class="dd">8/29</div></button>
     <button class="tab-btn tg"     onclick="showPage(5)" id="tab5"><div class="dn">DAY6</div><div class="de">🏠</div><div class="dd">8/30</div></button>
-    <button class="tab-btn ty"     onclick="showPage(6)" id="tab6"><div class="dn">📋</div><div class="de ty-label" style="font-size:0.75rem;font-weight:700;">備註</div><div class="dd">&nbsp;</div></button>
+    <button class="tab-btn ty"     onclick="showPage(6)" id="tab6"><div class="dn">🎫</div><div class="de ty-label" style="font-size:0.72rem;font-weight:700;">PASS</div><div class="dd">&nbsp;</div></button>
+    <button class="tab-btn ty"     onclick="showPage(7)" id="tab7"><div class="dn">📋</div><div class="de ty-label" style="font-size:0.75rem;font-weight:700;">備註</div><div class="dd">&nbsp;</div></button>
   </div>
 </div>
 
@@ -176,7 +194,8 @@
         <div class="tl-item"><div class="tl-left"><div class="tl-time">06:45</div><div class="tl-line"></div></div><div class="tl-text">✈️ 桃園國際機場起飛<div class="tl-sub">台灣時間 · 建議提早 2.5–3 小時到機場</div></div></div>
         <div class="tl-item"><div class="tl-left"><div class="tl-time">10:05</div><div class="tl-line"></div></div><div class="tl-text">🛬 抵達福岡機場<div class="tl-sub">日本時間 · 入境後往地鐵空港線</div></div></div>
         <div class="tl-item"><div class="tl-left"><div class="tl-time">🚇</div><div class="tl-line"></div></div><div class="tl-text">福岡機場 → 博多 → 小倉<div class="tl-sub">地鐵空港線至博多（約 5–10 分）→ JR 特急／新幹線至小倉（約 15–35 分）</div></div></div>
-        <div class="tl-item"><div class="tl-left"><div class="tl-time">下午</div><div class="tl-line"></div></div><div class="tl-text">🏯 小倉城<div class="tl-sub">天守閣＋庭園 · 建議預留 1.5–2.5 小時</div></div></div>
+        <div class="tl-item"><div class="tl-left"><div class="tl-time">下午</div><div class="tl-line"></div></div><div class="tl-text">🏯 小倉城 <span class="xi-tag xt-pass-m" style="vertical-align:middle;">FunPASS 必遊</span><div class="tl-sub">天守閣 · APP 出示 QR 換票</div></div></div>
+        <div class="tl-item"><div class="tl-left"><div class="tl-time">可選</div><div class="tl-line"></div></div><div class="tl-text">🌿 小倉城庭園 <span class="xi-tag xt-opt" style="vertical-align:middle;">可選</span> <span class="xi-tag xt-pass-m" style="vertical-align:middle;">FunPASS 必遊</span><div class="tl-sub">就在城旁 · 另算 1 次必遊兌換</div></div></div>
         <div class="tl-item"><div class="tl-left"><div class="tl-time">傍晚</div><div class="tl-line"></div></div><div class="tl-text">🚢 門司港老街逛逛<div class="tl-sub">JR 小倉 → 門司港約 15 分 · 藍翼橋、懷舊建築、焗烤咖哩</div></div></div>
         <div class="tl-item"><div class="tl-left"><div class="tl-time">住宿</div><div class="tl-line"></div></div><div class="tl-text">🛏️ 門司港普樂美雅飯店<div class="tl-sub">JR 門司港站步行約 2–4 分 · 可選海峽側房看關門大橋</div></div></div>
       </div>
@@ -191,14 +210,30 @@
         <div class="xi">
           <div class="xi-icon">🏯</div>
           <div class="xi-body">
-            <span class="xi-tag xt-paid">門票約 ¥350</span>
+            <span class="xi-tag xt-pass-m">FunPASS 必遊</span>
+            <span class="xi-tag xt-paid">現場約 ¥350／PASS 換票</span>
             <div class="xi-name">小倉城（こくらじょう）</div>
             <div class="xi-desc">福岡縣唯一保留天守閣的城堡，以獨特「唐造」屋頂聞名。1602 年由細川忠興築城，現天守為 1959 年市民募款重建，2019 年內部展示翻新。可搭電梯上展望層俯瞰小倉市區；旁有日本庭園與勝山公園，可連逛。</div>
             <div class="xi-desc">🕐 4–10月 9:00–20:00｜11–3月 9:00–19:00｜年中無休｜最終入場閉館 30 分前</div>
+            <div class="xi-desc">🎫 FunPASS：售票櫃檯出示 APP QR Code 兌換入場門票（定價約 NT$110）</div>
             <div class="xi-links">
               <a class="xi-link" href="https://kokura-castle.jp/taiwanese/" target="_blank">→ 官方（繁中）</a>
               <a class="xi-link" href="https://kokura-castle.jp/information/" target="_blank">→ 利用案内</a>
               <a class="xi-link" href="https://www.google.com/maps/search/?api=1&query=小倉城" target="_blank">→ 地圖</a>
+            </div>
+          </div>
+        </div>
+        <div class="xi">
+          <div class="xi-icon">🌿</div>
+          <div class="xi-body">
+            <span class="xi-tag xt-opt">可選</span>
+            <span class="xi-tag xt-pass-m">FunPASS 必遊 · NT$110</span>
+            <div class="xi-name">小倉城庭園</div>
+            <div class="xi-desc">就在小倉城旁邊，重現大名庭園與江戶時代武家書院氛圍，介紹日本「關懷之心」與款待文化。逛完天守可順逛；與小倉城各算 1 次 FunPASS 必遊兌換。</div>
+            <div class="xi-desc">🎫 FunPASS：售票櫃檯出示 APP QR Code 換票</div>
+            <div class="xi-links">
+              <a class="xi-link" href="https://kokura-castle.jp/taiwanese/" target="_blank">→ 小倉城官網</a>
+              <a class="xi-link" href="https://www.google.com/maps/search/?api=1&query=小倉城庭園" target="_blank">→ 地圖</a>
             </div>
           </div>
         </div>
@@ -255,6 +290,24 @@
       </div>
     </details>
 
+    <details class="x-card xc-pass">
+      <summary class="x-card-head">
+        <span class="x-card-title">FunPASS — DAY1 可選兌換</span>
+        <span class="x-card-arrow">▶</span>
+      </summary>
+      <div class="x-card-body">
+        <div class="xi">
+          <div class="xi-icon">🌿</div>
+          <div class="xi-body">
+            <span class="xi-tag xt-opt">可選</span>
+            <span class="xi-tag xt-pass-m">必遊 · NT$110</span>
+            <div class="xi-name">小倉城庭園</div>
+            <div class="xi-desc">時間夠就與小倉城連逛；抵達日偏趕的話可略過，把必遊次數留給 DAY2 門司港或 DAY3 國立博物館。</div>
+          </div>
+        </div>
+      </div>
+    </details>
+
     <details class="x-card xc-tip">
       <summary class="x-card-head">
         <span class="x-card-title">交通提示 — 機場到小倉／門司港</span>
@@ -285,8 +338,9 @@
       <div class="timeline">
         <div class="tl-item"><div class="tl-left"><div class="tl-time">上午</div><div class="tl-line"></div></div><div class="tl-text">⛴️ 搭船前往下關<div class="tl-sub">關門聯絡船 · 門司港 → 唐戶約 5 分 · 成人單程約 ¥400</div></div></div>
         <div class="tl-item"><div class="tl-left"><div class="tl-time">午前</div><div class="tl-line"></div></div><div class="tl-text">🐟 唐戶市場<div class="tl-sub">海鮮直賣・壽司・河豚名產 · 建議午前逛較熱鬧</div></div></div>
-        <div class="tl-item"><div class="tl-left"><div class="tl-time">可選</div><div class="tl-line"></div></div><div class="tl-text">🐠 市立下關水族館 海響館<div class="tl-sub">唐戶步行可達 · 海豚秀／河豚展示</div><div class="tl-note">或 みもすそ川公園／関門トンネル人道</div></div></div>
+        <div class="tl-item"><div class="tl-left"><div class="tl-time">可選</div><div class="tl-line"></div></div><div class="tl-text">🐠 市立下關水族館 海響館 <span class="xi-tag xt-opt" style="vertical-align:middle;">可選</span><div class="tl-sub">唐戶步行可達 · 海豚秀／河豚展示</div><div class="tl-note">或 みもすそ川公園／関門トンネル人道</div></div></div>
         <div class="tl-item"><div class="tl-left"><div class="tl-time">傍晚</div><div class="tl-line"></div></div><div class="tl-text">返回門司港<div class="tl-sub">渡船或步行海底隧道回九州側</div></div></div>
+        <div class="tl-item"><div class="tl-left"><div class="tl-time">可選</div><div class="tl-line"></div></div><div class="tl-text">🚢 門司港 FunPASS 景點擇一 <span class="xi-tag xt-opt" style="vertical-align:middle;">可選</span><div class="tl-sub">展望室／鐵道紀念館／關門海峽博物館</div></div></div>
         <div class="tl-item"><div class="tl-left"><div class="tl-time">住宿</div><div class="tl-line"></div></div><div class="tl-text">🛏️ 門司港普樂美雅飯店</div></div>
       </div>
     </div>
@@ -359,6 +413,52 @@
       </div>
     </details>
 
+    <details class="x-card xc-pass">
+      <summary class="x-card-head">
+        <span class="x-card-title">FunPASS — DAY2 可選兌換（回門司後）</span>
+        <span class="x-card-arrow">▶</span>
+      </summary>
+      <div class="x-card-body">
+        <div class="xi">
+          <div class="xi-icon">🔭</div>
+          <div class="xi-body">
+            <span class="xi-tag xt-opt">可選</span>
+            <span class="xi-tag xt-pass-m">必遊 · NT$70</span>
+            <div class="xi-name">門司港懷舊展望室</div>
+            <div class="xi-desc">約 103m 高、270° 俯瞰門司港與關門海峽。住普樂美雅步行即到，適合下關回來後、看夜景前上去。</div>
+            <div class="xi-desc">🎫 FunPASS：售票櫃檯出示 APP QR 換票</div>
+          </div>
+        </div>
+        <div class="xi">
+          <div class="xi-icon">🚂</div>
+          <div class="xi-body">
+            <span class="xi-tag xt-opt">可選</span>
+            <span class="xi-tag xt-pass-m">必遊 · NT$110</span>
+            <div class="xi-name">九州鐵道紀念館</div>
+            <div class="xi-desc">門司港區內，展示歷代火車與模擬駕駛。鐵道迷或想慢慢逛約 1 小時很適合。</div>
+            <div class="xi-desc">🎫 FunPASS：售票櫃檯出示 APP QR 換票</div>
+          </div>
+        </div>
+        <div class="xi">
+          <div class="xi-icon">🌊</div>
+          <div class="xi-body">
+            <span class="xi-tag xt-opt">可選</span>
+            <span class="xi-tag xt-pass-m">必遊 · NT$110</span>
+            <div class="xi-name">關門海峽博物館</div>
+            <div class="xi-desc">懷舊區內，大螢幕沉浸體驗門司港歷史，也有郵輪甲板風咖啡廳。雨天或腿累時的好選項。</div>
+            <div class="xi-desc">🎫 FunPASS：售票櫃檯出示 APP QR 換票</div>
+          </div>
+        </div>
+        <div class="xi">
+          <div class="xi-icon">📌</div>
+          <div class="xi-body">
+            <div class="xi-name">怎麼選？</div>
+            <div class="xi-desc">三選一即可佔用 1 次必遊。想看風景選展望室；想互動選鐵道館；想輕鬆吹冷氣選海峽博物館。時間很夠也可再加舊門司三井俱樂部／舊大阪商船（各約 NT$30）。</div>
+          </div>
+        </div>
+      </div>
+    </details>
+
     <details class="x-card xc-tip">
       <summary class="x-card-head">
         <span class="x-card-title">行程建議 — 可選組合</span>
@@ -397,6 +497,7 @@
         <div class="tl-item"><div class="tl-left"><div class="tl-time">上午</div><div class="tl-line"></div></div><div class="tl-text">🚆 前往博多<div class="tl-sub">JR 門司港 → 小倉 → 博多 · 約 1–1.5 小時</div></div></div>
         <div class="tl-item"><div class="tl-left"><div class="tl-time">中午</div><div class="tl-line"></div></div><div class="tl-text">🏨 FORZA 放行李<div class="tl-sub">博多站博多口 · 可先寄放再出發</div></div></div>
         <div class="tl-item"><div class="tl-left"><div class="tl-time">下午</div><div class="tl-line"></div></div><div class="tl-text">⛩️ 西鐵或巴士去太宰府<div class="tl-sub">西鐵電車：西鐵福岡（天神）→ 二日市轉太宰府｜或旅人巴士直達</div></div></div>
+        <div class="tl-item"><div class="tl-left"><div class="tl-time">可選</div><div class="tl-line"></div></div><div class="tl-text">🏛️ 九州國立博物館 <span class="xi-tag xt-pass-m" style="vertical-align:middle;">FunPASS 必遊</span><div class="tl-sub">天滿宮旁步行可達 · 很適合順路兌換</div></div></div>
         <div class="tl-item"><div class="tl-left"><div class="tl-time">傍晚</div><div class="tl-line"></div></div><div class="tl-text">返回博多<div class="tl-sub">參道梅枝餅、一蘭太宰府店可順路</div></div></div>
         <div class="tl-item"><div class="tl-left"><div class="tl-time">住宿</div><div class="tl-line"></div></div><div class="tl-text">🛏️ 博多站博多口 FORZA 飯店</div></div>
       </div>
@@ -428,6 +529,18 @@
             <div class="xi-desc">鄰近博多站博多口的商務飯店品牌，往地鐵、JR、西鐵巴士都方便，適合作為福岡市區據點。DAY3–DAY6（退房日）連續住宿。</div>
             <div class="xi-links">
               <a class="xi-link" href="https://www.hotelforza.jp/" target="_blank">→ FORZA 官網</a>
+            </div>
+          </div>
+        </div>
+        <div class="xi">
+          <div class="xi-icon">🏛️</div>
+          <div class="xi-body">
+            <span class="xi-tag xt-pass-m">FunPASS 必遊 · NT$155</span>
+            <div class="xi-name">九州國立博物館（可選・超順路）</div>
+            <div class="xi-desc">日本四座國立博物館之一，就在太宰府天滿宮旁。展示日本與亞洲文化交流史，逛完神社可步行前往。現場出示 FunPASS QR 換票入場。</div>
+            <div class="xi-links">
+              <a class="xi-link" href="https://www.kyuhaku.jp/" target="_blank">→ 官方網站</a>
+              <a class="xi-link" href="https://www.google.com/maps/search/?api=1&query=九州国立博物館" target="_blank">→ 地圖</a>
             </div>
           </div>
         </div>
@@ -490,15 +603,16 @@
     <div class="day-hero ct">
       <div class="day-tag ct">DAY 4 · 8月28日（五）</div>
       <div class="day-title">⚾ 大濠公園 · 王貞治</div>
-      <div class="day-sub">市區悠閒日 · 可選福岡塔</div>
+      <div class="day-sub">市區悠閒日 · FunPASS 精選／深度／福岡塔</div>
     </div>
 
     <div class="card">
       <div class="card-title">行程時刻</div>
       <div class="timeline">
         <div class="tl-item"><div class="tl-left"><div class="tl-time ct">上午</div><div class="tl-line"></div></div><div class="tl-text">🌳 大濠公園<div class="tl-sub">地鐵空港線「大濠公園」站步行約 7–10 分 · 可划船／散步／日本庭園</div></div></div>
-        <div class="tl-item"><div class="tl-left"><div class="tl-time ct">下午</div><div class="tl-line"></div></div><div class="tl-text">⚾ 王貞治紀念館<div class="tl-sub">BOSS E・ZO FUKUOKA 4F · 建議事先查預約與開館時間</div></div></div>
-        <div class="tl-item"><div class="tl-left"><div class="tl-time ct">可選</div><div class="tl-line"></div></div><div class="tl-text">🗼 福岡塔<div class="tl-sub">234m 海濱塔 · 可看博多灣夕陽／夜景</div></div></div>
+        <div class="tl-item"><div class="tl-left"><div class="tl-time ct">下午</div><div class="tl-line"></div></div><div class="tl-text">⚾ 王貞治紀念館 <span class="xi-tag xt-pass-s" style="vertical-align:middle;">FunPASS 精選</span><div class="tl-sub">BOSS E・ZO 4F · APP 閘門掃碼入場｜同棟可換深度餐</div></div></div>
+        <div class="tl-item"><div class="tl-left"><div class="tl-time ct">可選</div><div class="tl-line"></div></div><div class="tl-text">🍜 FunPASS 深度體驗（同棟餐廳）<div class="tl-sub">暖暮／MLB cafe／炸豬排等擇一 · 算 1 次深度</div></div></div>
+        <div class="tl-item"><div class="tl-left"><div class="tl-time ct">傍晚</div><div class="tl-line"></div></div><div class="tl-text">🗼 福岡塔 <span class="xi-tag xt-pass-m" style="vertical-align:middle;">FunPASS 必遊</span><div class="tl-sub">需 APP 提前預約 · 看博多灣夕陽／夜景</div></div></div>
         <div class="tl-item"><div class="tl-left"><div class="tl-time ct">住宿</div><div class="tl-line"></div></div><div class="tl-text">🛏️ 博多站博多口 FORZA 飯店</div></div>
       </div>
     </div>
@@ -525,10 +639,11 @@
         <div class="xi">
           <div class="xi-icon">⚾</div>
           <div class="xi-body">
-            <span class="xi-tag xt-paid">大人約 ¥1,800</span>
-            <div class="xi-name">王貞治棒球紀念館（王貞治ベースボールミュージアム）</div>
-            <div class="xi-desc">位於 PayPay Dome 旁複合設施 BOSS E・ZO FUKUOKA 4F。展示「世界全壘打王」王貞治生涯軌跡的歷史區，以及可體驗打擊／投球的「89 パーク」。棒球迷必訪；非球迷也可感受體育殿堂氛圍。</div>
+            <span class="xi-tag xt-pass-s">FunPASS 精選 · NT$400</span>
+            <div class="xi-name">王貞治棒球紀念館＋89 公園</div>
+            <div class="xi-desc">位於 PayPay Dome 旁複合設施 BOSS E・ZO FUKUOKA 4F。展示「世界全壘打王」王貞治生涯軌跡，以及可體驗打擊／投球的「89 パーク」。建議把七合一的「精選×1」用在這裡（價值最高之一，且本來就要去）。</div>
             <div class="xi-desc">🕐 平日 11:00–20:00｜土日祝 10:00–20:00｜最終入場約 19:30｜巨蛋活動日可能異動</div>
+            <div class="xi-desc">🎫 FunPASS：自動閘門掃描 APP QR Code 入場</div>
             <div class="xi-links">
               <a class="xi-link" href="https://www.softbankhawks.co.jp/stadium/ezofukuoka/ohmuseum/" target="_blank">→ 官方介紹</a>
               <a class="xi-link" href="https://yokanavi.com/spots/235805" target="_blank">→ よかなび</a>
@@ -538,14 +653,46 @@
         <div class="xi">
           <div class="xi-icon">🗼</div>
           <div class="xi-body">
-            <span class="xi-tag xt-opt">可選</span>
+            <span class="xi-tag xt-pass-m">FunPASS 必遊 · NT$220</span>
             <div class="xi-name">福岡塔</div>
-            <div class="xi-desc">日本最高海濱展望塔（234m），展望台可 360° 眺望福岡市區與博多灣。傍晚到夜間景色特別漂亮，適合當 DAY4 收尾；一樓有伴手禮與餐廳。</div>
+            <div class="xi-desc">日本最高海濱展望塔（234m），展望台可 360° 眺望福岡市區與博多灣。有 FunPASS 的話強烈建議排進 DAY4 傍晚；需透過 APP 提前預約後再現場出示 QR。</div>
             <div class="xi-desc">🕐 9:30–22:00（最終入場 21:30）</div>
             <div class="xi-links">
               <a class="xi-link" href="https://www.fukuokatower.co.jp/" target="_blank">→ 官方網站</a>
               <a class="xi-link" href="https://www.fukuokatower.co.jp/faq/" target="_blank">→ 營業時間 FAQ</a>
             </div>
+          </div>
+        </div>
+      </div>
+    </details>
+
+    <details class="x-card xc-pass">
+      <summary class="x-card-head">
+        <span class="x-card-title">FunPASS 順路可兌換 — BOSS E・ZO／百道</span>
+        <span class="x-card-arrow">▶</span>
+      </summary>
+      <div class="x-card-body">
+        <div class="xi">
+          <div class="xi-icon">🍜</div>
+          <div class="xi-body">
+            <span class="xi-tag xt-pass-d">深度體驗 · 擇一</span>
+            <div class="xi-name">同棟餐廳兌換（建議當日午餐／晚餐）</div>
+            <div class="xi-desc">BOSS E・ZO 3F 有多個深度選項：暖暮拉麵套餐、MLB cafe 漢堡、炸豬排 WAKABA、池田鮮魚店壽司套餐、肉山食堂等。逛完王貞治館直接下樓換餐最順，七合一「深度×1」建議用在這裡。</div>
+          </div>
+        </div>
+        <div class="xi">
+          <div class="xi-icon">🎨</div>
+          <div class="xi-body">
+            <span class="xi-tag xt-opt">若改用精選</span>
+            <div class="xi-name">teamLab 森林美術館／VR 虛擬體驗</div>
+            <div class="xi-desc">同棟 5F／6F。若更想玩數位藝術，可把精選改用 teamLab（NT$530）或 VR（NT$620），王貞治則改現場購票。本行程預設精選給王貞治。</div>
+          </div>
+        </div>
+        <div class="xi">
+          <div class="xi-icon">📌</div>
+          <div class="xi-body">
+            <div class="xi-name">DAY4 建議怎麼配</div>
+            <div class="xi-desc">精選：王貞治｜深度：E・ZO 餐廳擇一｜必遊：福岡塔（記得先預約）。上午大濠公園不需 FunPASS。</div>
           </div>
         </div>
       </div>
@@ -745,8 +892,151 @@
     </details>
   </div>
 
-  <!-- ========== NOTES ========== -->
+  <!-- ========== FUNPASS ========== -->
   <div class="page" id="page6">
+    <div class="day-hero yt">
+      <div class="day-tag yt">🎫 Kyushu FunPASS</div>
+      <div class="day-title">九州全域七合一</div>
+      <div class="day-sub">精選×1 · 深度×1 · 必遊×5 · 14 天內用完</div>
+    </div>
+
+    <div class="pass-banner">
+      <h3>好好玩九州護照 · 全域七合一</h3>
+      <p>成人約 <strong>NT$1,000</strong>／兒童約 NT$700。啟用後 14 天內可用：精選景點 1 次、深度體驗 1 次、必遊景點 5 次。第一次兌換才開始算效期。</p>
+      <div class="pass-chips">
+        <span class="pass-chip">精選 ×1</span>
+        <span class="pass-chip">深度 ×1</span>
+        <span class="pass-chip">必遊 ×5</span>
+        <span class="pass-chip">效期 14 天</span>
+      </div>
+      <p style="margin-top:0.7rem;"><a href="https://kyushu.funpass.app/" target="_blank">→ 官方網站</a>　可於 KLOOK／KKDAY 等通路購買</p>
+    </div>
+
+    <div class="card">
+      <div class="card-title">本行程建議兌換清單</div>
+      <div class="timeline">
+        <div class="tl-item"><div class="tl-left"><div class="tl-time">精選</div><div class="tl-line"></div></div><div class="tl-text">⚾ DAY4 王貞治棒球博物館＋89 公園<div class="tl-sub">定價約 NT$400 · 本來就要去，CP 值最高</div></div></div>
+        <div class="tl-item"><div class="tl-left"><div class="tl-time">深度</div><div class="tl-line"></div></div><div class="tl-text">🍜 DAY4 BOSS E・ZO 餐廳擇一<div class="tl-sub">暖暮／MLB cafe／炸豬排等 · 與紀念館同棟最順</div></div></div>
+        <div class="tl-item"><div class="tl-left"><div class="tl-time">必遊1</div><div class="tl-line"></div></div><div class="tl-text">🏯 DAY1 小倉城<div class="tl-sub">定價約 NT$110</div></div></div>
+        <div class="tl-item"><div class="tl-left"><div class="tl-time">必遊2</div><div class="tl-line"></div></div><div class="tl-text">🗼 DAY4 福岡塔<div class="tl-sub">定價約 NT$220 · 需 APP 提前預約</div></div></div>
+        <div class="tl-item"><div class="tl-left"><div class="tl-time">必遊3</div><div class="tl-line"></div></div><div class="tl-text">🏛️ DAY3 九州國立博物館（建議）<div class="tl-sub">定價約 NT$155 · 太宰府旁超順路</div></div></div>
+        <div class="tl-item"><div class="tl-left"><div class="tl-time">必遊4</div><div class="tl-line"></div></div><div class="tl-text">🌿 DAY1 小倉城庭園（可選）<div class="tl-sub">定價約 NT$110 · 與小倉城連逛</div></div></div>
+        <div class="tl-item"><div class="tl-left"><div class="tl-time">必遊5</div><div class="tl-line"></div></div><div class="tl-text">🚢 DAY2 門司港擇一（可選）<div class="tl-sub">展望室／鐵道紀念館／關門海峽博物館</div></div></div>
+      </div>
+      <div class="ref-note" style="margin-top:0.7rem;">
+        粗估：若現場分開買王貞治＋福岡塔＋小倉城＋庭園＋國立博物館＋一餐，常可超過 FunPASS 售價；實際以官網定價與當日方案為準。
+      </div>
+    </div>
+
+    <details class="x-card xc-pass" open>
+      <summary class="x-card-head">
+        <span class="x-card-title">使用方式</span>
+        <span class="x-card-arrow">▶</span>
+      </summary>
+      <div class="x-card-body">
+        <div class="xi">
+          <div class="xi-icon">1️⃣</div>
+          <div class="xi-body">
+            <div class="xi-name">通路購買取得 12 碼序號</div>
+            <div class="xi-desc">KLOOK、KKDAY、雄獅、易遊網、Trip.com 等皆可。電子憑證，無實體卡。</div>
+          </div>
+        </div>
+        <div class="xi">
+          <div class="xi-icon">2️⃣</div>
+          <div class="xi-body">
+            <div class="xi-name">下載 Kyushu FunPASS APP 綁定</div>
+            <div class="xi-desc">輸入序號與個人資料開通。一支手機可綁多張；僅綁定／開通不會開始算效期。</div>
+          </div>
+        </div>
+        <div class="xi">
+          <div class="xi-icon">3️⃣</div>
+          <div class="xi-body">
+            <div class="xi-name">到點出示 QR 核銷</div>
+            <div class="xi-desc">依景點：售票櫃檯換紙本票、或自動閘門掃碼、或餐廳櫃台兌換指定餐。福岡塔等需提前預約；部分體驗需前一天預約。</div>
+          </div>
+        </div>
+        <div class="xi">
+          <div class="xi-icon">⚠️</div>
+          <div class="xi-body">
+            <div class="xi-name">注意</div>
+            <div class="xi-desc">16 歲以上成人／4–15 歲兒童。第一次使用任一項目起算 14 天。出示 QR 時部分景點需要網路，建議開漫遊或 eSIM。</div>
+          </div>
+        </div>
+      </div>
+    </details>
+
+    <details class="x-card xc-spot" open>
+      <summary class="x-card-head">
+        <span class="x-card-title">各天順路 FunPASS 選項總表</span>
+        <span class="x-card-arrow">▶</span>
+      </summary>
+      <div class="x-card-body">
+        <div class="xi">
+          <div class="xi-icon">🛫</div>
+          <div class="xi-body">
+            <div class="xi-name">DAY1 小倉＋門司港</div>
+            <div class="xi-desc">必遊：小倉城。可選：小倉城庭園。傍晚先以懷舊區散步、晚餐為主。</div>
+          </div>
+        </div>
+        <div class="xi">
+          <div class="xi-icon">⛴️</div>
+          <div class="xi-body">
+            <div class="xi-name">DAY2 下關＋回門司</div>
+            <div class="xi-desc">唐戶／海響館不在 FunPASS。回門司後可選兌換：門司港懷舊展望室、九州鐵道紀念館、關門海峽博物館（三選一即可）。</div>
+          </div>
+        </div>
+        <div class="xi">
+          <div class="xi-icon">⛩️</div>
+          <div class="xi-body">
+            <div class="xi-name">DAY3 太宰府</div>
+            <div class="xi-desc">必遊：九州國立博物館（天滿宮旁，強烈建議）。太宰府天滿宮本身免費參拜，不佔 FunPASS。</div>
+          </div>
+        </div>
+        <div class="xi">
+          <div class="xi-icon">⚾</div>
+          <div class="xi-body">
+            <div class="xi-name">DAY4 市區</div>
+            <div class="xi-desc">精選：王貞治｜深度：E・ZO 餐廳｜必遊：福岡塔。同棟備選精選：teamLab、VR（若改用則王貞治需自費）。</div>
+          </div>
+        </div>
+        <div class="xi">
+          <div class="xi-icon">🌊</div>
+          <div class="xi-body">
+            <div class="xi-name">DAY5 糸島</div>
+            <div class="xi-desc">KKDAY 套裝路線基本上不依賴 FunPASS；可把剩餘必遊留在 DAY1–4 用完。</div>
+          </div>
+        </div>
+      </div>
+    </details>
+
+    <details class="x-card xc-tip">
+      <summary class="x-card-head">
+        <span class="x-card-title">為什麼選七合一而不是福岡二日暢遊？</span>
+        <span class="x-card-arrow">▶</span>
+      </summary>
+      <div class="x-card-body">
+        <div class="xi">
+          <div class="xi-icon">✅</div>
+          <div class="xi-body">
+            <div class="xi-name">七合一更貼近你的行程</div>
+            <div class="xi-desc">你會用到「精選」王貞治與「深度」餐食；福岡二日暢遊不含精選／深度，且效期僅 2 天。你行程跨 8/25–30，七合一 14 天較從容。</div>
+          </div>
+        </div>
+        <div class="xi">
+          <div class="xi-icon">🔗</div>
+          <div class="xi-body">
+            <div class="xi-name">參考連結</div>
+            <div class="xi-desc">
+              <a href="https://kyushu.funpass.app/" target="_blank">→ FunPASS 官網</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </details>
+  </div>
+
+  <!-- ========== NOTES ========== -->
+  <div class="page" id="page7">
     <div class="day-hero yt">
       <div class="day-tag yt">備註 · 總覽</div>
       <div class="day-title">📋 住宿與參考資料</div>
@@ -764,10 +1054,10 @@
     <div class="card">
       <div class="card-title">行程速覽</div>
       <div class="timeline">
-        <div class="tl-item"><div class="tl-left"><div class="tl-time">DAY1</div><div class="tl-line"></div></div><div class="tl-text">福岡機場 → 小倉城 → 門司港</div></div>
-        <div class="tl-item"><div class="tl-left"><div class="tl-time">DAY2</div><div class="tl-line"></div></div><div class="tl-text">下關唐戶市場＋可選海響館／公園／人道</div></div>
-        <div class="tl-item"><div class="tl-left"><div class="tl-time">DAY3</div><div class="tl-line"></div></div><div class="tl-text">移宿博多 → 太宰府</div></div>
-        <div class="tl-item"><div class="tl-left"><div class="tl-time">DAY4</div><div class="tl-line"></div></div><div class="tl-text">大濠公園 → 王貞治紀念館 →（可選）福岡塔</div></div>
+        <div class="tl-item"><div class="tl-left"><div class="tl-time">DAY1</div><div class="tl-line"></div></div><div class="tl-text">福岡機場 → 小倉城 →（可選）小倉城庭園 → 門司港</div></div>
+        <div class="tl-item"><div class="tl-left"><div class="tl-time">DAY2</div><div class="tl-line"></div></div><div class="tl-text">下關唐戶＋可選海響館／公園／人道 →（可選）門司港展望室／鐵道館／海峽博物館</div></div>
+        <div class="tl-item"><div class="tl-left"><div class="tl-time">DAY3</div><div class="tl-line"></div></div><div class="tl-text">移宿博多 → 太宰府 →（建議）九州國立博物館</div></div>
+        <div class="tl-item"><div class="tl-left"><div class="tl-time">DAY4</div><div class="tl-line"></div></div><div class="tl-text">大濠公園 → 王貞治（精選）→ E・ZO 餐（深度）→ 福岡塔</div></div>
         <div class="tl-item"><div class="tl-left"><div class="tl-time">DAY5</div><div class="tl-line"></div></div><div class="tl-text">KKDAY 糸島一日遊</div></div>
         <div class="tl-item"><div class="tl-left"><div class="tl-time">DAY6</div><div class="tl-line"></div></div><div class="tl-text">福岡機場返台</div></div>
       </div>
@@ -800,8 +1090,11 @@
         <div class="xi">
           <div class="xi-icon">🎫</div>
           <div class="xi-body">
-            <div class="xi-name">套裝行程</div>
-            <div class="xi-desc"><a href="https://www.kkday.com/zh-tw/product/166716" target="_blank">KKDAY 糸島一日遊 #166716</a></div>
+            <div class="xi-name">套票／套裝</div>
+            <div class="xi-desc">
+              <a href="https://kyushu.funpass.app/" target="_blank">Kyushu FunPASS 七合一</a> ·
+              <a href="https://www.kkday.com/zh-tw/product/166716" target="_blank">KKDAY 糸島一日遊 #166716</a>
+            </div>
           </div>
         </div>
         <div class="xi">
@@ -835,14 +1128,15 @@
 
 <script>
   let cur = 0;
-  const N = 7;
+  const N = 8;
   const MAPS = [
     'https://www.google.com/maps/search/?api=1&query=小倉城',
     'https://www.google.com/maps/search/?api=1&query=唐戸市場+下関',
     'https://www.google.com/maps/search/?api=1&query=太宰府天満宮',
-    'https://www.google.com/maps/search/?api=1&query=大濠公園+福岡',
+    'https://www.google.com/maps/search/?api=1&query=王貞治ベースボールミュージアム',
     'https://www.google.com/maps/search/?api=1&query=白糸の滝+糸島',
     'https://www.google.com/maps/search/?api=1&query=福岡空港',
+    'https://www.google.com/maps/search/?api=1&query=BOSS+E・ZO+FUKUOKA',
     'https://www.google.com/maps/search/?api=1&query=福岡+博多'
   ];
 
