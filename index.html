@@ -142,6 +142,39 @@
   .day-title { font-size: 1.32rem; font-weight: 700; line-height: 1.35; margin-bottom: 0.2rem; letter-spacing: 0.04em; }
   .day-sub { font-size: 0.8rem; color: var(--muted); font-weight: 300; letter-spacing: 0.02em; }
 
+  .weather-strip {
+    display: flex; align-items: center; gap: 0.85rem;
+    border: 1.5px solid var(--border); border-radius: 14px;
+    padding: 0.85rem 1rem; margin-bottom: 0.7rem;
+    background: var(--card);
+  }
+  .weather-strip.wx-loading, .weather-strip.wx-error {
+    color: var(--muted); font-size: 0.82rem; letter-spacing: 0.02em;
+  }
+  .weather-icon { font-size: 1.85rem; line-height: 1; flex-shrink: 0; }
+  .weather-main { flex: 1; min-width: 0; }
+  .weather-cond {
+    font-size: 0.95rem; font-weight: 700; letter-spacing: 0.04em;
+    line-height: 1.3; margin-bottom: 0.15rem;
+  }
+  .weather-place { font-size: 0.72rem; color: var(--muted); font-weight: 300; letter-spacing: 0.02em; }
+  .weather-stats {
+    display: flex; flex-wrap: wrap; gap: 0.35rem 0.9rem;
+    margin-top: 0.45rem; font-size: 0.78rem; color: var(--ink);
+  }
+  .weather-stats span { white-space: nowrap; }
+  .weather-stats .wx-label { color: var(--muted); margin-right: 0.15rem; }
+  .weather-temp { font-weight: 700; color: var(--primary); letter-spacing: 0.02em; }
+  .weather-rain-note {
+    margin-top: 0.45rem; font-size: 0.78rem; color: var(--coral);
+    font-weight: 300; letter-spacing: 0.02em; line-height: 1.45;
+  }
+  .weather-foot {
+    margin-top: 0.4rem; font-size: 0.62rem; color: var(--muted);
+    letter-spacing: 0.02em; line-height: 1.4;
+  }
+  .weather-foot a { color: var(--primary); text-decoration: none; }
+
   .card { background: var(--card); border: 1.5px solid var(--border); border-radius: 14px; padding: 1rem 1.1rem; margin-bottom: 0.7rem; width: 100%; box-sizing: border-box; }
   .card-title { font-size: 0.68rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--muted); margin-bottom: 0.7rem; }
 
@@ -271,6 +304,7 @@
       <div class="day-title jf-jinxuan-bold">🛫 抵達北九州</div>
       <div class="day-sub jf-jinxuanlatte-book">桃園 → 福岡機場 → 小倉城 → 門司港</div>
     </div>
+    <div class="weather-strip wx-loading jf-jinxuanlatte-book" data-date="2026-08-25" data-lat="33.8835" data-lon="130.8753" data-place="北九州・門司港">載入天氣預報中…</div>
 
     <div class="card">
       <div class="card-title jf-jinxuan-bold">行程時刻</div>
@@ -476,6 +510,7 @@
       <div class="day-title jf-jinxuan-bold">⛴️ 下關一日</div>
       <div class="day-sub jf-jinxuanlatte-book">門司港渡船 → 唐戶市場 → 可選景點</div>
     </div>
+    <div class="weather-strip wx-loading jf-jinxuanlatte-book" data-date="2026-08-26" data-lat="33.9595" data-lon="130.9412" data-place="下關・唐戶">載入天氣預報中…</div>
 
     <div class="card">
       <div class="card-title jf-jinxuan-bold">行程時刻</div>
@@ -677,6 +712,7 @@
       <div class="day-title jf-jinxuan-bold">⛩️ 移宿博多 · 太宰府</div>
       <div class="day-sub jf-jinxuanlatte-book">門司港 → 博多 FORZA → 太宰府天滿宮</div>
     </div>
+    <div class="weather-strip wx-loading jf-jinxuanlatte-book" data-date="2026-08-27" data-lat="33.5195" data-lon="130.5344" data-place="太宰府・博多">載入天氣預報中…</div>
 
     <div class="card">
       <div class="card-title jf-jinxuan-bold">行程時刻</div>
@@ -872,6 +908,7 @@
       <div class="day-title jf-jinxuan-bold">⚾ 大濠公園 · 王貞治</div>
       <div class="day-sub jf-jinxuanlatte-book">市區悠閒日 · FunPASS 精選／深度／福岡塔</div>
     </div>
+    <div class="weather-strip wx-loading jf-jinxuanlatte-book" data-date="2026-08-28" data-lat="33.5902" data-lon="130.4017" data-place="福岡市">載入天氣預報中…</div>
 
     <div class="card">
       <div class="card-title jf-jinxuan-bold">行程時刻</div>
@@ -986,9 +1023,10 @@
   <div class="page" id="page4">
     <div class="day-hero ct">
       <div class="day-tag ct jf-jinxuan-bold">DAY 5 · 8月29日（六）</div>
-      <div class="day-title jf-jinxuan-bold">🌊 糸島一日遊</div>
-      <div class="day-sub jf-jinxuanlatte-book">KKDAY · 約 8 小時 · 08:20 筑紫口集合 → 約 18:30 回博多</div>
+      <div class="day-title jf-jinxuan-bold">🌊 糸島一日遊 · 夜博多</div>
+      <div class="day-sub jf-jinxuanlatte-book">KKDAY 08:20 集合 → 約 18:30 回博多 · 20:00 一蘭和樂團 · 明治公園</div>
     </div>
+    <div class="weather-strip wx-loading jf-jinxuanlatte-book" data-date="2026-08-29" data-lat="33.557" data-lon="130.196" data-place="糸島">載入天氣預報中…</div>
 
     <div class="card">
       <div class="card-title jf-jinxuan-bold">集合資訊</div>
@@ -1008,8 +1046,12 @@
         <div class="tl-item"><div class="tl-left"><div class="tl-time ct">12:40</div><div class="tl-line"></div></div><div class="tl-text jf-jinxuanlatte-book">🍜 <a href="https://www.google.com/maps/search/?api=1&query=一蘭の森+糸島" target="_blank">一蘭之森</a><div class="tl-sub jf-jinxuanlatte-book">停留約 1 小時 10 分鐘</div><div class="tl-note jf-jinxuanlatte-book">可參觀製麵／拉麵文化展示 · <strong>午餐請自理</strong>（園區內可吃一蘭）</div></div></div>
         <div class="tl-item"><div class="tl-left"><div class="tl-time ct">15:10</div><div class="tl-line"></div></div><div class="tl-text jf-jinxuanlatte-book">⛩️ <a href="https://www.google.com/maps/search/?api=1&query=宗像大社" target="_blank">宗像大社</a><div class="tl-sub jf-jinxuanlatte-book">停留約 40 分鐘</div><div class="tl-note jf-jinxuanlatte-book">世界遺產相關 · 邊津宮參拜</div></div></div>
         <div class="tl-item"><div class="tl-left"><div class="tl-time ct">16:10</div><div class="tl-line"></div></div><div class="tl-text jf-jinxuanlatte-book">🌅 <a href="https://www.google.com/maps/search/?api=1&query=宮地嶽神社" target="_blank">宮地嶽神社</a><div class="tl-sub jf-jinxuanlatte-book">停留約 1 小時</div><div class="tl-note jf-jinxuanlatte-book">光之道參道 · 傍晚光線常最好看</div></div></div>
-        <div class="tl-item"><div class="tl-left"><div class="tl-time ct">18:30</div><div class="tl-line"></div></div><div class="tl-text jf-jinxuanlatte-book">返回博多站<div class="tl-sub jf-jinxuanlatte-book">約略時間 · 視路況可能提早或延後</div></div></div>
-        <div class="tl-item"><div class="tl-left"><div class="tl-time ct">住宿</div><div class="tl-line"></div></div><div class="tl-text jf-jinxuanlatte-book">🛏️ 博多站博多口 FORZA 飯店</div></div>
+        <div class="tl-item"><div class="tl-left"><div class="tl-time ct">18:30</div><div class="tl-line"></div></div><div class="tl-text jf-jinxuanlatte-book">返回博多站<div class="tl-sub jf-jinxuanlatte-book">約略時間 · 視路況可能提早或延後 · 先回 FORZA 放行李／稍作休息</div></div></div>
+        <div class="tl-item"><div class="tl-left"><div class="tl-time ct">19:40</div><div class="tl-line"></div></div><div class="tl-text jf-jinxuanlatte-book">出發中洲<div class="tl-sub jf-jinxuanlatte-book">地鐵空港線 博多 → 中洲川端（約 5 分）· 2 號出口步行約 1 分</div></div></div>
+        <div class="tl-item"><div class="tl-left"><div class="tl-time ct">20:00</div><div class="tl-line"></div></div><div class="tl-text jf-jinxuanlatte-book">🍜 <a href="https://www.google.com/maps/search/?api=1&query=一蘭本社総本店" target="_blank">一蘭本社總本店 · 和樂團表演</a><div class="tl-sub jf-jinxuanlatte-book">約 20:00–20:15 · 店外免費觀看 · 建議提前幾分鐘在店前或對街佔位</div><div class="tl-note jf-jinxuanlatte-book">天候／營運可能臨時取消 · 出發前看一蘭官網或現場公告</div></div></div>
+        <div class="tl-item"><div class="tl-left"><div class="tl-time ct">晚上</div><div class="tl-line"></div></div><div class="tl-text jf-jinxuanlatte-book">🌳 <a href="https://www.google.com/maps/search/?api=1&query=明治公園+博多駅前" target="_blank">明治公園</a>（2026/8/7 新開）<div class="tl-sub jf-jinxuanlatte-book">中洲川端 → 博多（地鐵約 5 分）· 博多口步行約 4 分 · 立體園路＋夜燈</div></div></div>
+        <div class="tl-item"><div class="tl-left"><div class="tl-time ct">有閒</div><div class="tl-line"></div></div><div class="tl-text jf-jinxuanlatte-book">🍺 <a href="https://www.google.com/maps/search/?api=1&query=Craft+Beer+Pit+CONTINUE+明治公園" target="_blank">Craft Beer Pit CONTINUE?</a><div class="tl-sub jf-jinxuanlatte-book">就在明治公園 2F · 佐賀 GAME BREW 直營 · 15 種 tap 自己斟、盎司計價</div><div class="tl-note jf-jinxuanlatte-book">11:00–23:00 · 第 1、3 週三公休（8/29 週六營業）· 累了可直接回 FORZA</div></div></div>
+        <div class="tl-item"><div class="tl-left"><div class="tl-time ct">住宿</div><div class="tl-line"></div></div><div class="tl-text jf-jinxuanlatte-book">🛏️ 博多站博多口 FORZA 飯店<div class="tl-sub jf-jinxuanlatte-book">明治公園就在博多口附近，走回飯店很近</div></div></div>
       </div>
     </div>
 
@@ -1082,10 +1124,50 @@
           <div class="xi-body">
             <span class="xi-tag xt-opt">約 1 小時</span>
             <div class="xi-name jf-jinxuan-bold">宮地嶽神社 · 16:10</div>
-            <div class="xi-desc jf-jinxuanlatte-book">以「日本第一光之道」聞名——参道燈籠與夕陽排成一線時特別美。行程最後一站，約 16:10 起停留 1 小時，運氣好可見金色參道光線。</div>
+            <div class="xi-desc jf-jinxuanlatte-book">以「日本第一光之道」聞名——参道燈籠與夕陽排成一線時特別美。套裝最後一站，約 16:10 起停留 1 小時，運氣好可見金色參道光線。</div>
             <div class="xi-links">
               <a class="xi-link" href="https://www.miyajidake.or.jp/" target="_blank">→ 官方網站</a>
               <a class="xi-link" href="https://www.google.com/maps/search/?api=1&query=宮地嶽神社" target="_blank">→ 地圖</a>
+            </div>
+          </div>
+        </div>
+        <div class="xi">
+          <div class="xi-icon">🍜</div>
+          <div class="xi-body">
+            <span class="xi-tag xt-free">店外免費看</span>
+            <div class="xi-name jf-jinxuan-bold">一蘭和樂團 · 本社總本店 20:00</div>
+            <div class="xi-desc jf-jinxuanlatte-book">中洲「一蘭本社總本店」每晚約 20:00–20:15，員工組成的「一蘭和樂團」在店外演舞（原創曲約 5 首）。站店前或對街拍攝最清楚。中午已在一蘭之森吃過的話，看完表演即可往博多，不必再排隊用餐。</div>
+            <div class="xi-desc jf-jinxuanlatte-book">🕐 表演約 20:00–20:15（日落／天候可能改時或取消）｜店內 24 小時</div>
+            <div class="xi-links">
+              <a class="xi-link" href="https://zh-cht.ichiran.com/event/wagakudan.html" target="_blank">→ 和樂團資訊</a>
+              <a class="xi-link" href="https://ichiran.com/shop/kyushu/sohonten/" target="_blank">→ 總本店</a>
+              <a class="xi-link" href="https://www.google.com/maps/search/?api=1&query=一蘭本社総本店" target="_blank">→ 地圖</a>
+            </div>
+          </div>
+        </div>
+        <div class="xi">
+          <div class="xi-icon">🌳</div>
+          <div class="xi-body">
+            <span class="xi-tag xt-opt">2026/8/7 開園</span>
+            <div class="xi-name jf-jinxuan-bold">明治公園（The Gateway MEIJI PARK）</div>
+            <div class="xi-desc jf-jinxuanlatte-book">博多站前新開的都市公園，藤本壯介設計監修。立體園路串起五座廣場，晚上有燈光。園內有飲食店與都市型 SPA（TOTOPA）。公園本身可逛；立體園路與店鋪棟約 0:00–5:30 關閉。</div>
+            <div class="xi-desc jf-jinxuanlatte-book">📍 博多區博多駅前 3-24-3 · JR 博多口步行約 4 分</div>
+            <div class="xi-links">
+              <a class="xi-link" href="https://meiji-park.jp/" target="_blank">→ 官方網站</a>
+              <a class="xi-link" href="https://www.google.com/maps/search/?api=1&query=明治公園+博多駅前" target="_blank">→ 地圖</a>
+            </div>
+          </div>
+        </div>
+        <div class="xi">
+          <div class="xi-icon">🍺</div>
+          <div class="xi-body">
+            <span class="xi-tag xt-food">有閒再去</span>
+            <div class="xi-name jf-jinxuan-bold">Craft Beer Pit CONTINUE?</div>
+            <div class="xi-desc jf-jinxuanlatte-book">明治公園 2F。佐賀 GAME BREW 直營 taproom（從博多站マイング橫丁遷來）。常時約 15 種精釀，自己從 tap 斟、以 1 盎司（約 30ml）計價，適合淺試幾款。公園逛累了、還想喝一杯再上樓；不想喝就走回 FORZA。</div>
+            <div class="xi-desc jf-jinxuanlatte-book">🕐 11:00–23:00｜第 1、3 週三公休（8/29 週六營業）</div>
+            <div class="xi-links">
+              <a class="xi-link" href="https://meiji-park.jp/" target="_blank">→ 明治公園店鋪一覽</a>
+              <a class="xi-link" href="https://www.google.com/maps/search/?api=1&query=Craft+Beer+Pit+CONTINUE+明治公園" target="_blank">→ 地圖</a>
             </div>
           </div>
         </div>
@@ -1164,7 +1246,14 @@
           <div class="xi-icon">☀️</div>
           <div class="xi-body">
             <div class="xi-name jf-jinxuan-bold">裝備建議</div>
-            <div class="xi-desc jf-jinxuanlatte-book">8 月底仍偏熱：帽子、防晒、運動鞋、水、行動電源。海邊與神社参道需走路。</div>
+            <div class="xi-desc jf-jinxuanlatte-book">8 月底仍偏熱：帽子、防晒、運動鞋、水、行動電源。海邊與神社参道需走路。晚上中洲＋明治公園再出門，行李先放飯店。</div>
+          </div>
+        </div>
+        <div class="xi">
+          <div class="xi-icon">🌃</div>
+          <div class="xi-body">
+            <div class="xi-name jf-jinxuan-bold">晚上節奏</div>
+            <div class="xi-desc jf-jinxuanlatte-book">糸島團約 18:30 才回博多，20:00 表演卡得緊：先放行李再搭地鐵去中洲。看完回博多口逛明治公園；CONTINUE? 在同棟 2F，走不動就直接回 FORZA。和樂團遇雨或營運調整可能取消，現場再決定要不要改直接去公園。</div>
           </div>
         </div>
         <div class="xi">
@@ -1188,6 +1277,7 @@
       <div class="day-title jf-jinxuan-bold">🏠 平安回家</div>
       <div class="day-sub jf-jinxuanlatte-book">福岡機場 → 桃園</div>
     </div>
+    <div class="weather-strip wx-loading jf-jinxuanlatte-book" data-date="2026-08-30" data-lat="33.5859" data-lon="130.4513" data-place="福岡機場">載入天氣預報中…</div>
 
     <div class="card">
       <div class="card-title jf-jinxuan-bold">行程時刻</div>
@@ -1384,8 +1474,8 @@
         <div class="xi">
           <div class="xi-icon">🌊</div>
           <div class="xi-body">
-            <div class="xi-name jf-jinxuan-bold">DAY5 糸島</div>
-            <div class="xi-desc jf-jinxuanlatte-book">KKDAY 套裝路線基本上不依賴 FunPASS；可把剩餘必遊留在 DAY1–4 用完。</div>
+            <div class="xi-name jf-jinxuan-bold">DAY5 糸島＋夜博多</div>
+            <div class="xi-desc jf-jinxuanlatte-book">KKDAY 套裝與晚上的一蘭表演／明治公園都不依賴 FunPASS；可把剩餘必遊留在 DAY1–4 用完。</div>
           </div>
         </div>
       </div>
@@ -1440,7 +1530,7 @@
         <div class="tl-item"><div class="tl-left"><div class="tl-time">DAY2</div><div class="tl-line"></div></div><div class="tl-text jf-jinxuanlatte-book">下關唐戶＋可選海響館／公園／人道 →（可選）門司港展望室／鐵道館／海峽博物館</div></div>
         <div class="tl-item"><div class="tl-left"><div class="tl-time">DAY3</div><div class="tl-line"></div></div><div class="tl-text jf-jinxuanlatte-book">移宿博多 → 太宰府 →（建議）九州國立博物館</div></div>
         <div class="tl-item"><div class="tl-left"><div class="tl-time">DAY4</div><div class="tl-line"></div></div><div class="tl-text jf-jinxuanlatte-book">大濠公園 → 王貞治（精選）→ E・ZO 餐（深度）→ 福岡塔</div></div>
-        <div class="tl-item"><div class="tl-left"><div class="tl-time">DAY5</div><div class="tl-line"></div></div><div class="tl-text jf-jinxuanlatte-book">KKDAY 糸島：08:20 筑紫口 LAWSON 集合 → 約 18:30 回博多</div></div>
+        <div class="tl-item"><div class="tl-left"><div class="tl-time">DAY5</div><div class="tl-line"></div></div><div class="tl-text jf-jinxuanlatte-book">KKDAY 糸島：08:20 集合 → 約 18:30 回博多 → 20:00 一蘭和樂團 → 明治公園（有閒 CONTINUE?）</div></div>
         <div class="tl-item"><div class="tl-left"><div class="tl-time">DAY6</div><div class="tl-line"></div></div><div class="tl-text jf-jinxuanlatte-book">福岡機場返台</div></div>
       </div>
     </div>
@@ -1463,6 +1553,7 @@
               <a href="https://www.dazaifutenmangu.or.jp/tw/" target="_blank">太宰府天滿宮</a> ·
               <a href="https://www.ohori-park.jp/" target="_blank">大濠公園</a> ·
               <a href="https://www.fukuokatower.co.jp/" target="_blank">福岡塔</a> ·
+              <a href="https://meiji-park.jp/" target="_blank">明治公園</a> ·
               <a href="https://www.munakata-taisha.or.jp/" target="_blank">宗像大社</a> ·
               <a href="https://www.miyajidake.or.jp/" target="_blank">宮地嶽神社</a> ·
               <a href="https://www.crossroadfukuoka.jp/tw/" target="_blank">VISIT FUKUOKA</a>
@@ -1547,7 +1638,10 @@
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 
-  document.addEventListener('DOMContentLoaded', () => showPage(0));
+  document.addEventListener('DOMContentLoaded', () => {
+    showPage(0);
+    loadWeatherForecasts();
+  });
 
   function prevDay() { if (cur > 0) showPage(cur - 1); }
   function nextDay() { if (cur < N - 1) showPage(cur + 1); }
@@ -1560,6 +1654,182 @@
     const dx = e.changedTouches[0].clientX - sx;
     if (Math.abs(dx) > 55) dx < 0 ? nextDay() : prevDay();
   });
+
+  /* —— 每日天氣預報（Open-Meteo，免 API key） —— */
+  const WX_CODE = {
+    0:  ['☀️', '晴朗'],
+    1:  ['🌤', '大致晴朗'],
+    2:  ['⛅️', '局部多雲'],
+    3:  ['☁️', '陰天'],
+    45: ['🌫', '有霧'],
+    48: ['🌫', '霧凇'],
+    51: ['🌦', '毛毛雨'],
+    53: ['🌦', '小雨'],
+    55: ['🌧', '持續細雨'],
+    56: ['🌧', '凍毛毛雨'],
+    57: ['🌧', '凍細雨'],
+    61: ['🌧', '小雨'],
+    63: ['🌧', '中雨'],
+    65: ['🌧', '大雨'],
+    66: ['🌧', '凍雨'],
+    67: ['🌧', '強凍雨'],
+    71: ['❄️', '小雪'],
+    73: ['❄️', '中雪'],
+    75: ['❄️', '大雪'],
+    77: ['❄️', '雪粒'],
+    80: ['🌦', '短暫陣雨'],
+    81: ['🌧', '陣雨'],
+    82: ['🌧', '強陣雨'],
+    85: ['🌨', '短暫降雪'],
+    86: ['🌨', '強降雪'],
+    95: ['⛈', '雷雨'],
+    96: ['⛈', '雷雨夾冰雹'],
+    99: ['⛈', '強雷雨夾冰雹']
+  };
+
+  function wxInfo(code) {
+    return WX_CODE[code] || ['🌡', '天氣資訊'];
+  }
+
+  const RAIN_CODES = {
+    51:1, 53:1, 55:1, 56:1, 57:1,
+    61:1, 63:1, 65:1, 66:1, 67:1,
+    80:1, 81:1, 82:1, 95:1, 96:1, 99:1
+  };
+
+  function fmtTemp(n) {
+    return (Math.round(n * 10) / 10).toFixed(1).replace(/\.0$/, '');
+  }
+
+  function pad2(n) { return (n < 10 ? '0' : '') + n; }
+
+  function isRainyHour(precip, code, prob) {
+    if (precip != null && precip >= 0.1) return true;
+    if (code != null && RAIN_CODES[code]) return true;
+    if (prob != null && prob >= 50) return true;
+    return false;
+  }
+
+  /** 依當日小時資料整理連續雨段，回傳如「10:00–16:00」或「10:00–12:00、15:00–18:00」 */
+  function rainTimeRanges(hourly, date) {
+    if (!hourly || !hourly.time) return '';
+    const hours = [];
+    for (let i = 0; i < hourly.time.length; i++) {
+      const t = hourly.time[i];
+      if (!t.startsWith(date)) continue;
+      const hour = parseInt(t.slice(11, 13), 10);
+      if (isRainyHour(hourly.precipitation[i], hourly.weather_code[i], hourly.precipitation_probability[i])) {
+        hours.push(hour);
+      }
+    }
+    if (!hours.length) return '';
+
+    const ranges = [];
+    let start = hours[0], prev = hours[0];
+    for (let i = 1; i < hours.length; i++) {
+      if (hours[i] === prev + 1) {
+        prev = hours[i];
+      } else {
+        ranges.push([start, prev + 1]);
+        start = prev = hours[i];
+      }
+    }
+    ranges.push([start, prev + 1]);
+
+    return ranges.map(function (r) {
+      const end = Math.min(r[1], 24);
+      return pad2(r[0]) + ':00–' + pad2(end) + ':00';
+    }).join('、');
+  }
+
+  function expectsRain(dailyIdx, daily, rainNote) {
+    if (rainNote) return true;
+    const sum = daily.precipitation_sum[dailyIdx];
+    const pop = daily.precipitation_probability_max[dailyIdx];
+    const code = daily.weather_code[dailyIdx];
+    if (sum != null && sum >= 0.5) return true;
+    if (pop != null && pop >= 50) return true;
+    if (RAIN_CODES[code]) return true;
+    return false;
+  }
+
+  async function fetchDailyForecast(lat, lon) {
+    const url = 'https://api.open-meteo.com/v1/forecast'
+      + '?latitude=' + encodeURIComponent(lat)
+      + '&longitude=' + encodeURIComponent(lon)
+      + '&daily=weather_code,temperature_2m_max,temperature_2m_min,precipitation_probability_max,precipitation_sum'
+      + '&hourly=precipitation,precipitation_probability,weather_code'
+      + '&timezone=Asia%2FTokyo&forecast_days=16';
+    const res = await fetch(url);
+    if (!res.ok) throw new Error('weather http ' + res.status);
+    return res.json();
+  }
+
+  function renderWeather(el, data, date) {
+    const daily = data.daily;
+    const idx = daily.time.indexOf(date);
+    if (idx < 0) {
+      el.className = 'weather-strip wx-error jf-jinxuanlatte-book';
+      el.textContent = '此日期尚無可用預報（約可查未來 16 天）';
+      return;
+    }
+    const code = daily.weather_code[idx];
+    const [icon, label] = wxInfo(code);
+    const tmax = daily.temperature_2m_max[idx];
+    const tmin = daily.temperature_2m_min[idx];
+    const pop = daily.precipitation_probability_max[idx];
+    const rain = daily.precipitation_sum[idx];
+    const place = el.dataset.place || '';
+    const rainNote = rainTimeRanges(data.hourly, date);
+    const showRain = expectsRain(idx, daily, rainNote);
+
+    let rainHtml = '';
+    if (showRain && rainNote) {
+      rainHtml = '<div class="weather-rain-note jf-jinxuanlatte-book">☔ 預計降雨時段約 ' + rainNote + '（日本時間）</div>';
+    } else if (showRain) {
+      rainHtml = '<div class="weather-rain-note jf-jinxuanlatte-book">☔ 當日有降雨機率，時段尚不明確，出門請備雨具</div>';
+    }
+
+    el.className = 'weather-strip';
+    el.innerHTML =
+      '<div class="weather-icon" aria-hidden="true">' + icon + '</div>' +
+      '<div class="weather-main">' +
+        '<div class="weather-cond jf-jinxuan-bold">' + label + '</div>' +
+        (place ? '<div class="weather-place jf-jinxuanlatte-book">' + place + ' · 當日預報</div>' : '') +
+        '<div class="weather-stats jf-jinxuanlatte-book">' +
+          '<span class="weather-temp"><span class="wx-label">氣溫</span>' + fmtTemp(tmin) + '–' + fmtTemp(tmax) + '°C</span>' +
+          '<span><span class="wx-label">降雨機率</span>' + (pop == null ? '—' : pop + '%') + '</span>' +
+          '<span><span class="wx-label">預估降水</span>' + (rain == null ? '—' : fmtTemp(rain) + ' mm') + '</span>' +
+        '</div>' +
+        rainHtml +
+        '<div class="weather-foot jf-jinxuanlatte-book">資料來源 <a href="https://open-meteo.com/" target="_blank" rel="noopener">Open-Meteo</a> · 每次開啟頁面即時更新</div>' +
+      '</div>';
+  }
+
+  async function loadWeatherForecasts() {
+    const nodes = Array.from(document.querySelectorAll('.weather-strip[data-date]'));
+    if (!nodes.length) return;
+
+    const cache = new Map();
+
+    await Promise.all(nodes.map(async (el) => {
+      const lat = el.dataset.lat;
+      const lon = el.dataset.lon;
+      const date = el.dataset.date;
+      const key = lat + ',' + lon;
+      try {
+        let data = cache.get(key);
+        if (!data) {
+          data = await fetchDailyForecast(lat, lon);
+          cache.set(key, data);
+        }
+        renderWeather(el, data, date);
+      } catch (err) {
+        el.className = 'weather-strip wx-error jf-jinxuanlatte-book';
+        el.textContent = '無法取得天氣預報，請稍後再試';
+      }
+    }));
+  }
 </script>
 </body>
 </html>
