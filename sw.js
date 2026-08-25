@@ -1,4 +1,4 @@
-const CACHE_NAME = 'fukuoka2026-v1';
+const CACHE_NAME = 'fukuoka2026-v2';
 const PRECACHE = [
   './',
   './index.html',

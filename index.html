@@ -194,6 +194,22 @@
   }
   .weather-foot a { color: var(--primary); text-decoration: none; }
 
+  /* justfont 只掃初始 DOM；天氣預報是後來才寫入，把可能出現的字預先放進對應 font class。
+     不用 display:none，以免 subset 掃描略過。 */
+  .jf-wx-glyphs {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+    color: transparent;
+    pointer-events: none;
+  }
+
   .card { background: var(--card); border: 1.5px solid var(--border); border-radius: 14px; padding: 1rem 1.1rem; margin-bottom: 0.7rem; width: 100%; box-sizing: border-box; }
   .card-title { font-size: 0.68rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--muted); margin-bottom: 0.7rem; }
 
@@ -333,6 +349,11 @@
 </style>
 </head>
 <body>
+
+<div class="jf-wx-glyphs" aria-hidden="true">
+  <span class="jf-jinxuan-bold">晴朗大致晴朗局部多雲陰天有霧霧凇毛毛雨小雨持續細雨凍毛毛雨凍細雨中雨大雨凍雨強凍雨小雪中雪大雪雪粒短暫陣雨陣雨強陣雨短暫降雪強降雪雷雨雷雨夾冰雹強雷雨夾冰雹天氣資訊</span>
+  <span class="jf-jinxuanlatte-book">載入天氣預報中此日期尚無可用預報約可查未來天無法取得請稍後再試氣溫降雨機率預估降水資料來源當日預報預計降雨時段約日本時間當日有降雨機率時段尚不明確出門請備雨具北九州門司港下關唐戶太宰府博多福岡市糸島福岡機場</span>
+</div>
 
 <div class="hero">
   <h1 class="jf-jinxuan-bold">🌊 福岡 2026</h1>
@@ -1871,7 +1892,7 @@
           '<span><span class="wx-label">預估降水</span>' + (rain == null ? '—' : fmtTemp(rain) + ' mm') + '</span>' +
         '</div>' +
         rainHtml +
-        '<div class="weather-foot jf-jinxuanlatte-book">資料來源 <a href="https://open-meteo.com/" target="_blank" rel="noopener">Open-Meteo</a> · 每次開啟頁面即時更新</div>' +
+        '<div class="weather-foot jf-jinxuanlatte-book">資料來源 <a href="https://open-meteo.com/" target="_blank" rel="noopener">Open-Meteo</a></div>' +
       '</div>';
   }
 
