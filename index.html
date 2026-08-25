@@ -2,8 +2,27 @@
 <html lang="zh-TW">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, viewport-fit=cover">
 <title>福岡 2026 ✈️</title>
+<meta name="description" content="福岡六天五夜行程：8月25日至30日 · FunPASS 七合一">
+<meta name="theme-color" content="#0F3D4A">
+<meta name="application-name" content="福岡2026">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="福岡2026">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32.png">
+<link rel="icon" type="image/png" sizes="192x192" href="icons/icon-192.png">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="icons/apple-touch-icon.png">
+<script>
+(function () {
+  if (window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone) {
+    document.documentElement.classList.add('standalone');
+  }
+})();
+</script>
 <script>
 /* justfont workaround: uniqueChars 會把出現≥2次的字重複塞進 fs，導致誤觸上限。
    在送出 API 前將 fs 去重為真正的不重複字元。 */
@@ -273,6 +292,44 @@
   .nav-btn.active { color: var(--primary); }
 
   .ref-note { font-size: 0.74rem; color: var(--muted); line-height: 1.7; margin-top: 0.5rem; padding: 0.55rem 0.75rem; background: var(--bg); border-radius: 8px; font-weight: 300; }
+
+  html.standalone body::before {
+    content: '';
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    height: env(safe-area-inset-top);
+    background: #0F3D4A;
+    z-index: 200;
+    pointer-events: none;
+  }
+  html.standalone .hero { padding-top: calc(1.2rem + env(safe-area-inset-top)); }
+  html.standalone .tab-bar-wrap { top: env(safe-area-inset-top); }
+
+  .install-banner {
+    display: none;
+    position: fixed;
+    left: 1rem; right: 1rem;
+    bottom: calc(4.4rem + env(safe-area-inset-bottom));
+    z-index: 110;
+    background: #0F3D4A;
+    color: #F0F4F6;
+    border-radius: 14px;
+    padding: 0.85rem 1rem;
+    box-shadow: 0 10px 28px rgba(15,61,74,0.38);
+    align-items: flex-start;
+    gap: 0.7rem;
+  }
+  .install-banner.show { display: flex; }
+  .install-banner-body { flex: 1; min-width: 0; }
+  .install-banner-title { font-size: 0.92rem; font-weight: 700; letter-spacing: 0.04em; margin-bottom: 0.2rem; }
+  .install-banner-text { font-size: 0.78rem; font-weight: 300; line-height: 1.55; color: rgba(240,244,246,0.86); }
+  .install-banner-actions { display: flex; flex-direction: column; gap: 0.35rem; flex-shrink: 0; }
+  .install-banner button {
+    border: none; cursor: pointer; border-radius: 8px;
+    padding: 0.38rem 0.7rem; font-size: 0.75rem; letter-spacing: 0.04em;
+  }
+  .install-add { background: #F0F4F6; color: #0F3D4A; font-weight: 700; }
+  .install-dismiss { background: transparent; color: rgba(240,244,246,0.75); }
 </style>
 </head>
 <body>
@@ -1608,6 +1665,17 @@
 
 </div>
 
+<div class="install-banner" id="installBanner" role="dialog" aria-label="加入主畫面">
+  <div class="install-banner-body">
+    <div class="install-banner-title jf-jinxuan-bold">加到手機主畫面</div>
+    <div class="install-banner-text jf-jinxuanlatte-book" id="installText">像 App 一樣從主畫面開啟這份行程。</div>
+  </div>
+  <div class="install-banner-actions">
+    <button type="button" class="install-add" id="installAdd" hidden>加入</button>
+    <button type="button" class="install-dismiss" id="installDismiss">關閉</button>
+  </div>
+</div>
+
 <div class="bottom-nav">
   <button class="nav-btn active" onclick="scrollToTop()"><span>⬆️</span>回頂</button>
   <button class="nav-btn" onclick="openMap()"><span>🗺️</span>地圖</button>
@@ -1641,6 +1709,7 @@
   document.addEventListener('DOMContentLoaded', () => {
     showPage(0);
     loadWeatherForecasts();
+    setupPwa();
   });
 
   function prevDay() { if (cur > 0) showPage(cur - 1); }
@@ -1804,6 +1873,65 @@
         rainHtml +
         '<div class="weather-foot jf-jinxuanlatte-book">資料來源 <a href="https://open-meteo.com/" target="_blank" rel="noopener">Open-Meteo</a> · 每次開啟頁面即時更新</div>' +
       '</div>';
+  }
+
+  function isStandaloneApp() {
+    return window.matchMedia('(display-mode: standalone)').matches
+      || window.navigator.standalone === true;
+  }
+
+  function setupPwa() {
+    if (isStandaloneApp()) document.documentElement.classList.add('standalone');
+
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('sw.js', { scope: './' }).catch(function () {});
+    }
+
+    const banner = document.getElementById('installBanner');
+    const text = document.getElementById('installText');
+    const addBtn = document.getElementById('installAdd');
+    const dismissBtn = document.getElementById('installDismiss');
+    if (!banner) return;
+
+    if (isStandaloneApp() || localStorage.getItem('fukuoka2026-hide-install') === '1') return;
+
+    const ua = navigator.userAgent || '';
+    const isIOS = /iphone|ipad|ipod/i.test(ua)
+      || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+    const isIOSSafari = isIOS && /safari/i.test(ua) && !/crios|fxios|edgios|android/i.test(ua);
+
+    let deferredPrompt = null;
+    window.addEventListener('beforeinstallprompt', function (e) {
+      e.preventDefault();
+      deferredPrompt = e;
+      text.textContent = '加到主畫面後，就可以像 App 一樣直接開啟行程。';
+      addBtn.hidden = false;
+      banner.classList.add('show');
+    });
+
+    if (isIOSSafari) {
+      text.textContent = '在 Safari 點底部分享鈕，再選「加入主畫面」。';
+      banner.classList.add('show');
+    }
+
+    addBtn.addEventListener('click', async function () {
+      if (!deferredPrompt) return;
+      deferredPrompt.prompt();
+      await deferredPrompt.userChoice.catch(function () {});
+      deferredPrompt = null;
+      banner.classList.remove('show');
+      localStorage.setItem('fukuoka2026-hide-install', '1');
+    });
+
+    dismissBtn.addEventListener('click', function () {
+      banner.classList.remove('show');
+      localStorage.setItem('fukuoka2026-hide-install', '1');
+    });
+
+    window.addEventListener('appinstalled', function () {
+      banner.classList.remove('show');
+      localStorage.setItem('fukuoka2026-hide-install', '1');
+    });
   }
 
   async function loadWeatherForecasts() {
