@@ -1826,13 +1826,6 @@
   function scrollToTop() { window.scrollTo({ top: 0, behavior: 'smooth' }); }
   function openMap() { window.open(MAPS[cur] || MAPS[6], '_blank'); }
 
-  let sx = 0;
-  document.addEventListener('touchstart', e => { sx = e.touches[0].clientX; });
-  document.addEventListener('touchend', e => {
-    const dx = e.changedTouches[0].clientX - sx;
-    if (Math.abs(dx) > 55) dx < 0 ? nextDay() : prevDay();
-  });
-
   /* —— 每日天氣預報（Open-Meteo，免 API key） —— */
   const WX_CODE = {
     0:  ['☀️', '晴朗'],
